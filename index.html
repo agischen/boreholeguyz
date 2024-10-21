@@ -235,7 +235,7 @@
 
 <!-- WhatsApp Button -->
 <a href="https://wa.me/27836022696" target="_blank" id="whatsapp-button">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" />
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width=20/>
     Chat with us on WhatsApp!
 </a>
 
@@ -251,6 +251,7 @@
     let map;
     let autocomplete;
     let marker;
+    let geocoder;
 
     function initMap() {
         // Initialize the map with a default location
@@ -258,6 +259,9 @@
             center: { lat: -30.559482, lng: 22.937506 }, // Default location
             zoom: 6,
         });
+
+        // Initialize geocoder
+        geocoder = new google.maps.Geocoder();
 
         // Set up the autocomplete functionality for the input field
         const input = document.getElementById("pac-input");
@@ -293,6 +297,36 @@
             });
         });
     }
+
+    // Send WhatsApp location functionality
+
+    document.getElementById('sendWhatsApp').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default anchor behavior
+    const address = document.getElementById('pac-input').value;
+
+        // Check if the address is not empty
+        if (address) {
+            geocoder.geocode({ 'address': address }, function(results, status) {
+                if (status === 'OK') {
+                    const location = results[0].geometry.location;
+                    const latitude = location.lat();
+                    const longitude = location.lng();
+
+					// Format the WhatsApp link with the phone number and location
+                    const whatsappLink = `https://wa.me/27836022696?text=Here%20is%20the%20location:%20https://www.google.com/maps?q=${latitude},${longitude}`;
+
+                    // Open the WhatsApp link in a new tab
+                    window.open(whatsappLink, '_blank');
+                     // Clear the input field after sending the location
+                document.getElementById('pac-input').value = '';
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        } else {
+            alert('Please enter an address.');
+        }
+    });
 </script>
 
 </body>
