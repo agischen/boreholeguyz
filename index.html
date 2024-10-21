@@ -11,6 +11,8 @@
     <title>Borehole Drilling Services | Clean Water Solutions</title>
     
     <style>
+        /* ... existing styles ... */
+      <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -111,19 +113,6 @@
             height: 500px;
             width: 100%;
         }
-
-        .controls {
-            margin-top: 10px;
-            margin-bottom: 10px;
-            width: 300px;
-            padding: 10px;
-            font-size: 16px;
-        }
-
-        .autocomplete-box {
-            width: 50%;
-            margin: 20px auto;
-        }
     </style>
 
     <!-- Structured Data for SEO -->
@@ -174,7 +163,7 @@
 <section id="services">
     <h2>Our Borehole Drilling Services</h2>
     <p>At Clean Water Solutions, we specialize in providing <strong>borehole drilling services</strong> that ensure reliable and long-term access to clean water. Whether you're looking for <strong>residential borehole drilling</strong> or <strong>agricultural irrigation solutions</strong>, we have the expertise to get the job done efficiently.</p>
-    <img src="./images/borehole-drilling.jpg" alt="Borehole drilling equipment for reliable water access" width="600">
+    <img src="./images/borehole-drilling.jpg" alt="Borehole drilling equipment for reliable water access" width="300">
     <h3>Our Services Include:</h3>
     <ul>
         <li>Residential borehole drilling</li>
@@ -185,53 +174,69 @@
     </ul>
 </section>
 
-<section id="benefits">
-    <h2>Why Choose Us for Borehole Drilling?</h2>
-    <ul>
-        <li><strong>Experience:</strong> Over 20 years of industry experience in delivering high-quality borehole drilling services.</li>
-        <li><strong>State-of-the-Art Equipment:</strong> We use the latest technology to ensure fast, precise drilling with minimal environmental impact.</li>
-        <li><strong>Cost-Effective:</strong> Competitive pricing with no hidden charges.</li>
-        <li><strong>Customer Satisfaction:</strong> Our clients trust us for our reliable and efficient service, resulting in long-lasting boreholes.</li>
-    </ul>
-</section>
-
-<section id="testimonials">
-    <h2>What Our Clients Say</h2>
-    <blockquote>"Clean Water Solutions helped us access water on our farm efficiently and affordably. Their team was professional and knowledgeable!" – John D.</blockquote>
-    <blockquote>"We couldn't be happier with the service. Our residential borehole was completed on time, and it works perfectly." – Sarah M.</blockquote>
-    <blockquote>"A top-notch experience from start to finish. Highly recommended for anyone looking for water well services." – Michael P.</blockquote>
-</section>
-
 <!-- Google Maps Section -->
-<section id="location">
-    <h2>Find Us</h2>
-    <div class="autocomplete-box">
-        <input id="pac-input" class="controls" type="text" placeholder="Enter a location" aria-label="Enter a location" />
-    </div>
-    <div id="map"></div>
-</section>
+<style>
+        /* CSS for the layout and styling */
+        .autocomplete-box {
+            display: flex;
+            align-items: center; /* Align items vertically */
+            gap: 10px; /* Adds space between the input and the button */
+            margin-bottom: 10px; /* Adds space between the box and the map */
+        }
 
-<div class="cta">
-    <h2>Ready to Secure a Reliable Water Supply?</h2>
-    <p><a href="#contact">Get Your Free Consultation Today!</a></p>
-</div>
+        .controls {
+            flex: 1; /* Makes the input take up the remaining space */
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            max-width: 80%; /* Input box takes up 80% of the width */
+        }
 
-<section id="contact">
-    <h2>Contact Us</h2>
-    <p>Have any questions or want to book a consultation? Fill out the form below, and we’ll get back to you as soon as possible!</p>
-    <form class="contact-form" action="mailto:youremail@example.com" method="POST" enctype="text/plain">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" placeholder="Your Message" rows="5" required></textarea>
-        
-        <button type="submit">Send Message</button>
-    </form>
-</section>
+        #sendWhatsApp {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            background-color: #25D366; /* WhatsApp green */
+            color: white;
+            padding: 10px 15px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: background-color 0.3s;
+            white-space: nowrap; /* Prevents button text from wrapping */
+        }
+
+        #sendWhatsApp img {
+            margin-right: 8px; /* Adds space between the icon and text */
+        }
+
+        #sendWhatsApp:hover {
+            background-color: #128C7E; /* Darker green on hover */
+        }
+
+        #map {
+            width: 100%; /* Full width map */
+            height: 400px; /* Adjust map height */
+        }
+
+        h2 {
+            font-family: Arial, sans-serif;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <section id="location">
+        <h2>Find My Address</h2>
+        <div class="autocomplete-box">
+            <input id="pac-input" class="controls" type="text" placeholder="Enter a location" aria-label="Enter a location" />
+            <a href="https://wa.me/27836022696" target="_blank" id="sendWhatsApp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="20">
+                Send location on WhatsApp!
+            </a>
+        </div>
+        <div id="map"></div>
+    </section>
 
 <!-- WhatsApp Button -->
 <a href="https://wa.me/27836022696" target="_blank" id="whatsapp-button">
