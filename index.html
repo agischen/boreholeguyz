@@ -9,6 +9,7 @@
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://www.example.com/">
     <title>Borehole Drilling Services | Clean Water Solutions</title>
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -104,6 +105,25 @@
         #whatsapp-button:hover {
             background-color: #128C7E; /* Darker green on hover */
         }
+
+        /* Google Maps */
+        #map {
+            height: 500px;
+            width: 100%;
+        }
+
+        .controls {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            width: 300px;
+            padding: 10px;
+            font-size: 16px;
+        }
+
+        .autocomplete-box {
+            width: 50%;
+            margin: 20px auto;
+        }
     </style>
 
     <!-- Structured Data for SEO -->
@@ -154,7 +174,7 @@
 <section id="services">
     <h2>Our Borehole Drilling Services</h2>
     <p>At Clean Water Solutions, we specialize in providing <strong>borehole drilling services</strong> that ensure reliable and long-term access to clean water. Whether you're looking for <strong>residential borehole drilling</strong> or <strong>agricultural irrigation solutions</strong>, we have the expertise to get the job done efficiently.</p>
-    <img src="https://www.example.com/images/borehole-drilling.jpg" alt="Borehole drilling equipment for reliable water access" width="600">
+    <img src="./images/borehole-drilling.jpg" alt="Borehole drilling equipment for reliable water access" width="600">
     <h3>Our Services Include:</h3>
     <ul>
         <li>Residential borehole drilling</li>
@@ -180,6 +200,15 @@
     <blockquote>"Clean Water Solutions helped us access water on our farm efficiently and affordably. Their team was professional and knowledgeable!" – John D.</blockquote>
     <blockquote>"We couldn't be happier with the service. Our residential borehole was completed on time, and it works perfectly." – Sarah M.</blockquote>
     <blockquote>"A top-notch experience from start to finish. Highly recommended for anyone looking for water well services." – Michael P.</blockquote>
+</section>
+
+<!-- Google Maps Section -->
+<section id="location">
+    <h2>Find Us</h2>
+    <div class="autocomplete-box">
+        <input id="pac-input" class="controls" type="text" placeholder="Enter a location" aria-label="Enter a location" />
+    </div>
+    <div id="map"></div>
 </section>
 
 <div class="cta">
@@ -212,4 +241,59 @@
 
 <footer>
     <p>&copy; 2024 Clean Water Solutions | All Rights Reserved</p>
-    <p>Follow us on <a href="https://www.facebook.com/yourbusiness" style="color: white;">Facebook</a> | <a href="https://www.instagram.com/yourbusiness" style="color: white;">Instagram</a> | <a href="https://www.linkedin.com/yourbusiness
+    <p>Follow us on <a href="https://www.facebook.com/yourbusiness" style="color: white;">Facebook</a> | <a href="https://www.instagram.com/yourbusiness" style="color: white;">Instagram</a> | <a href="https://www.linkedin.com/yourbusiness">LinkedIn</a></p>
+</footer>
+
+<!-- Load the Google Maps JavaScript API -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBU5_N4w32hFFObC7RcdJB2_KJMc5eB4DY&libraries=places&callback=initMap" async defer></script>
+
+<script>
+    let map;
+    let autocomplete;
+    let marker;
+
+    function initMap() {
+        // Initialize the map with a default location
+        map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -30.559482, lng: 22.937506 }, // Default location
+            zoom: 6,
+        });
+
+        // Set up the autocomplete functionality for the input field
+        const input = document.getElementById("pac-input");
+        autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo("bounds", map);
+
+        // Add an event listener to detect when the user selects a place
+        autocomplete.addListener("place_changed", () => {
+            const place = autocomplete.getPlace();
+
+            // Handle errors when no geometry is returned
+            if (!place.geometry) {
+                console.log("No details available for input: '" + place.name + "'");
+                return;
+            }
+
+            // If the place has a geometry, adjust the map accordingly
+            if (place.geometry.viewport) {
+                map.fitBounds(place.geometry.viewport);
+            } else {
+                map.setCenter(place.geometry.location);
+                map.setZoom(17); // Zoom to the location
+            }
+
+            // Place a marker at the selected location
+            if (marker) {
+                marker.setMap(null); // Clear the existing marker
+            }
+
+            marker = new google.maps.Marker({
+                position: place.geometry.location,
+                map: map,
+            });
+        });
+    }
+</script>
+
+</body>
+</html>
