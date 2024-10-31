@@ -1,0 +1,166 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@600&display=swap');
+
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #e9f5ff;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+header, footer {
+    background-color: #005f99;
+    color: white;
+    text-align: center;
+    padding: 1.5em 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em 0;
+    text-align: center;
+}
+
+h1 {
+    color: #ffcc00;
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5em;
+}
+
+h2 {
+    color: #005f99;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.75em;
+    margin-top: 0;
+}
+
+p {
+    color: #555;
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin: 1em 0 2em;
+}
+
+/* Persona Container */
+.persona-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+/* Persona Cards */
+.persona-card {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center; /* Center text for persona cards */
+    display: flex;
+    flex-direction: column; /* Stack icon and text */
+    align-items: center; /* Center items horizontally */
+    gap: 1em;
+    position: relative;
+}
+
+.persona-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
+}
+
+.persona-icon {
+    font-size: 3em; /* Increased icon size for better visibility */
+    color: #ffcc00;
+}
+
+.persona-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.persona-desc {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #555;
+}
+
+.button {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #005f99;
+    padding: 0.75em 2em;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1.5em;
+}
+
+.button:hover {
+    background-color: #ffd633;
+    color: #003f66;
+}
+
+/* Process Steps to match Persona Cards */
+.process-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2em;
+    margin-top: 2em;
+}
+
+.process-step {
+    background-color: #fff;
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* 3D shadow effect */
+    cursor: pointer; /* Make them clickable */
+    transition: all 0.3s ease; /* Smooth transition for hover effect */
+    text-align: center; /* Center text for process steps */
+    display: flex;
+    flex-direction: column; /* Stack icon and text */
+    align-items: center; /* Center items horizontally */
+    gap: 1em;
+    margin: 1em 0; /* Add margin for spacing */
+}
+
+.process-step:hover {
+    transform: translateY(-5px); /* Lift the card on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+/* Icon for Process Steps */
+.icon {
+    font-size: 3em; /* Increased icon size for better visibility */
+    color: #ffcc00; /* Match persona icon color */
+}
+
+@media (min-width: 768px) {
+    .persona-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+/* Ensure the button styles are consistent */
+.button {
+    display: inline-block;
+    background-color: #ffcc00;
+    color: #005f99;
+    padding: 0.75em 2em;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1.5em;
+}
+
+.button:hover {
+    background-color: #ffd633;
+    color: #003f66;
+}
