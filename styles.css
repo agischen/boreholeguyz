@@ -42,8 +42,6 @@ footer {
     margin-top: auto;           /* Push footer to the bottom */
 }
 
-
-
 .container {
     width: 90%;
     max-width: 1200px;
@@ -236,7 +234,7 @@ h2 {
 
 /* Icon for Persona Cards */
 .icon {
-    font-size: 4em;
+    font-size: 6em;
     color: #ffcc00;
 }
 
