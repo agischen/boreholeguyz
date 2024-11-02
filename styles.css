@@ -233,10 +233,12 @@ h2 {
 }
 
 /* Icon for Persona Cards */
-.icon {
-    font-size: 6em;
-    color: #ffcc00;
+/* Icon for Persona Cards */
+.persona-icon {
+    font-size: 6em; /* Adjust size as needed */
+    color: #ffcc00; /* Icon color */
 }
+
 
 @media (min-width: 768px) {
     .persona-container {
