@@ -64,9 +64,6 @@ h1 {
     font-size: 2.5em;
 }
 
-
-
-
 .contact-form, .persona-container, .process-steps {
     max-width: 900px;
     margin: 0 auto;
@@ -239,7 +236,7 @@ h2 {
 
 /* Icon for Persona Cards */
 .icon {
-    font-size: 3em;
+    font-size: 4em;
     color: #ffcc00;
 }
 
