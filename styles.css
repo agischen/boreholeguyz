@@ -102,12 +102,6 @@ header.main-header {
     border-radius: 5px; /* Rounded corners */
 }
 
-footer {
-    background-color: transparent; /* Remove the blue background */
-    color: black; /* Change text color to black */
-    text-align: center;
-    padding: 1em 0; /* Optional: Add some padding for spacing */
-}
 /* Containers */
 .container {
     width: 90%;
@@ -188,12 +182,11 @@ p {
     flex: 1; /* Allow the WhatsApp section to grow */
     max-width: 500px; /* Set a max width for better control */
     padding-right: 20px; /* Add space to the right for separation */
-    margin-top:0;
 }
 
 .form-container {
     flex: 1; /* Allow the form section to grow */
-    max-width: 900px; /* Set a max width for better control */
+    max-width: 1200px; /* Set a max width for better control */
 }
 
 
@@ -235,7 +228,6 @@ p {
 .whatsapp-container {
     text-align: center; /* Center-align the heading and button */
     margin: 40px 0; /* Add margin for spacing */
-    margin-top:20px;
 }
 
 #whatsapp-button {
@@ -247,7 +239,6 @@ p {
     border-radius: 5px; /* Rounded corners */
     text-decoration: none; /* Remove underline */
     transition: background-color 0.3s; /* Smooth background change */
-
 }
 
 #whatsapp-button:hover {
@@ -260,7 +251,7 @@ p {
 
 /* Persona Container */
 .persona-container {
-    display: flex;
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2em;
 }
@@ -302,6 +293,72 @@ p {
     line-height: 1.5;
     color: #555;
 }
+
+/* Process Steps */
+
+.section-process {
+    display: flex;
+    justify-content: space-around /*space-between;*/
+    align-items: flex-start;
+    text-align: left;
+}
+
+.text-content1 {
+    flex: 0.8; /* Smaller flex factor for more control */
+    max-width: 1500px; /* Smaller width */
+    width: 100%; /* Ensure it uses the max-width as the upper limit */
+    
+    margin-right: 0px;
+}
+
+
+
+.process-steps {
+    display: grid;
+    /* grid-template-columns: repeat(2, 1fr);  Create two equal columns */
+    grid-template-columns: repeat(2, minmax(000px, 1fr));
+    gap: 5px; /* Space between steps, adjust as needed */
+    flex: 1;
+    max-width: 1500px; /* Optional: Control the maximum width of the grid */
+}
+
+.process-step {
+    @extend .card;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    background-color: #f4fbff; /* Optional: light background for contrast */
+    border-radius: 8px; /* Optional: rounded corners */
+    padding: 10px;
+    margin: 0;
+    width: 70%; /* Ensure each step fills grid cell */
+    aspect-ratio: 1 / 1; /* Enforce square shape */
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px var(--shadow-hover-color);
+    background-color: #003b55  /*#e0e0e0; Slightly darker shade on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+}
+
+
+.process-icon {
+    font-size: 2em;
+    color: var(--secondary-color);
+}
+
+.process-icon img {
+    width: 2em;
+    height: 2em;
+    object-fit: contain;
+}
+
+
 /* Google Maps Section */
 #map {
     width: 100%;
