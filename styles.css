@@ -1,324 +1,427 @@
 /* Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Raleway:wght@600&display=swap');
 
+/* CSS Variables */
+:root {
+    --primary-color: #005f99; /* Primary Colour */
+    --secondary-color: #ffcc00; /* Secondary Colour */
+    --background-color: #f4fbff; /* Background Colour */
+    --text-color: #333; /* Base Text Colour */
+    --accent-color: #004080; /* Accent Colour */
+    --button-hover-color: #ffd633; /* Button Hover Colour */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Shadow Colour */
+    --shadow-hover-color: rgba(0, 0, 0, 0.5); /* Shadow Hover Colour */
+    --price-color: White; /* Price Colour */
+    --price-font-size: 4em; /* Price Font Size */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: var(--primary-color);
+    padding: 1em;
+    text-align: center;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1.5em;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    padding: 0.5em;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar ul li a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
 /* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #e9f5ff;
-    color: #333;
+    background-color: var(--background-color);
+    color: var(--text-color);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-}
-.price {
-    color: Orange;         /* Change color to white */
-    font-size: 4em;      /* Adjust font size to make it larger */
-    font-weight: bold;    /* Makes the text bold for emphasis */
-    font-style: italic;   /* Make the text italic */
-    text-align: center;   /* Center-aligns the text */
-    background-color: #005f99; /* Background color */
-    padding: 20px;       /* Add padding for spacing */
-    max-width: 300px;    /* Set a max width for the container */
-    margin: 0 auto;      /* Center the container */
-    border-radius: 10px; /* Optional: add rounded corners */
+    line-height: 1.6;
 }
 
-
-
-
-header {
-    background-color: #005f99;
-    text: white;
+header.main-header {
+    background-color: var(--primary-color);
     color: white;
     text-align: center;
-    padding: 1.5em 0;
-}
-footer {
-    color: white;         /* Change footer text color to white */
-    text-align: center;
+    padding: 2em 1em;
+    box-shadow: 0 4px 8px var(--shadow-color);
 }
 
+.header-content {
+    display: flex;
+    justify-content: space-between; /* Space between the elements */
+    align-items: center; /* Align items vertically in the center */
+    margin-top: 20px; /* Optional: Add spacing above the header content */
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #005f99; /* Primary Blue */
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.header-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 40px; /* Add space at the bottom */
+}
+
+.main-title {
+    font-size: 3em; /* Increased font size for the title */
+    color: var(--text-color); /* Use the text color variable */
+    margin: 0; /* Remove margin */
+    margin-right: 10px; /* Add some space to the right of the title */
+}
+
+.price {
+    color: white; /* Set the price color to white */
+    font-size: 2.5em; /* Increased font size for the price */
+    font-weight: bold; /* Make the price bold */
+    background-color: #005f99; /* Background color */
+    padding: 10px 15px; /* Padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Containers */
 .container {
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 2em 0;
+    padding: 3em 0;
     text-align: center;
+}
+
+h1, h2 {
+    font-family: 'Raleway', sans-serif;
+    color: #003366; /* Navy */
+    text-align: center;
+    margin-bottom: 1em;
 }
 
 h1 {
-    color: white;
-    font-family: 'Raleway', sans-serif;
     font-size: 2.5em;
-}
-
-h2 {
-    color: #005f99;
-    font-family: 'Raleway', sans-serif;
-    font-size: 1.75em;
+    color: white;
     margin-top: 0;
 }
 
+h2 {
+    font-size: 1.75em;
+    color: var(--accent-color); /* Accent Colour */
+}
+
+header h1 {
+    color: #333; /* Change text colour to ensure visibility */
+    background-color: rgba(255, 255, 255, 0.7); /* Optional: Light background for contrast */
+    padding: 10px; /* Optional: Padding for better spacing */
+}
+
 p {
-    color: #555;
+    color: #4a4a4a; /* Dark Grey */
     font-size: 1.1em;
-    line-height: 1.6;
     margin: 1em 0 2em;
 }
 
-.contact-form {
-    max-width: 900px;
-    margin: 0 auto;
-    background-color: #e9f5ff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.contact-form label {
-    display: block;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #005f99;
-}
-
-.contact-form input,
-.contact-form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff; /* Ensures the input is clickable */
-    color: #333; /* Ensures text is visible */
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: #005f99;
-    box-shadow: 0 0 5px rgba(0, 95, 153, 0.5); /* Optional shadow for focus */
-}
-
-.contact-form button {
-    background-color: #005f99;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.contact-form button:hover {
-    background-color: #004080;
-}
-
-/* Google Maps Section Styles */
-.autocomplete-box {
-    display: flex;
-    align-items: center; /* Align items vertically */
-    gap: 10px; /* Adds space between the input and the button */
-    margin-bottom: 10px; /* Adds space between the box and the map */
-}
-
-.controls {
-    flex: 1; /* Makes the input take up the remaining space */
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    font-size: 16px;
-    max-width: 80%; /* Input box takes up 80% of the width */
-}
-
-
- /* WhatsApp Button Style Chat to us */
-.whatsapp-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;   /* Center-aligns heading and button */
-    margin: 20px 0;        /* Adds vertical spacing */
-}
-
-.whatsapp-container h2 {
-    margin-bottom: 10px;   /* Adds space below heading */
-    color: #005f99;        /* Matches heading colour */
-}
-
-#whatsapp-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #25D366; /* WhatsApp green */
-    color: white;
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-family: Arial, sans-serif;
-    transition: background-color 0.3s;
-    margin-top: 10px;       /* Space between heading and button */
-}
-
-#whatsapp-button img {
-    margin-right: 8px;      /* Space between icon and text */
-}
-
-#whatsapp-button:hover {
-    background-color: #128C7E; /* Darker green on hover */
-}
-
-/* Send Location WhatsApp */
-        #sendWhatsApp {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            background-color: #25D366; /* WhatsApp green */
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            transition: background-color 0.3s;
-            white-space: nowrap; /* Prevents button text from wrapping */
-        }
-
-        #sendWhatsApp img {
-            margin-right: 8px; /* Adds space between the icon and text */
-        }
-
-        #sendWhatsApp:hover {
-            background-color: #128C7E; /* Darker green on hover */
-        }
-/* Additional styling for the heading */
-h2 {
-    font-family: 'Raleway', sans-serif; /* Example font */
-    color: #005f99;                     /* Color for heading */
-    text-align: center;                 /* Center the heading */
-    margin-bottom: 15px;                /* Space below heading */
-}
-
-
-#map {
-    width: 100%; /* Full width map */
-    height: 400px; /* Adjust map height */
-}
-
-/* Persona Container */
-.persona-container {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2em;
-    margin-top: 2em;
-}
-
-/* Persona Cards */
-.persona-card {
-    background-color: #fff;
-    padding: 2em;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-align: center;
-    display: flex;
-    flex-direction: column; /* Stack icon and text */
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Center items vertically */
-    gap: 1em;
-    position: relative;
-}
-
-.persona-icon img {
-    width: 100px; /* Set a fixed width */
-    height: 100px; /* Set a fixed height */
-    object-fit: contain; /* Maintain aspect ratio */
-    margin: 0; /* Ensure no margin */
-}
-
-
-
-.persona-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2);
-}
-
-
-
-.persona-name {
-    font-family: 'Raleway', sans-serif;
-    font-size: 1.5em;
-    color: #333;
-}
-
-.persona-desc {
-    font-size: 1em;
-    line-height: 1.5;
-    color: #555;
-}
-
+/* Call-to-Action Button */
 .button {
     display: inline-block;
-    background-color: #ffcc00;
-    color: #005f99;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
     padding: 0.75em 2em;
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
     margin-top: 1.5em;
+    transition: background-color 0.3s;
 }
 
 .button:hover {
-    background-color: #ffd633;
-    color: #003f66;
+    background-color: var(--button-hover-color);
+    color: var(--accent-color);
 }
 
-/* Process Steps to match Persona Cards */
+/* Card Styles */
+.card {
+    background-color: white;
+    padding: 2em;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px var(--shadow-color);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+/* Section3 */
+ 
+.contact-container {
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-around; /* Space between the items */
+    align-items: flex-start; /* Align items to the start */
+    margin: 10px; /* Add some margin around the container */
+}
+
+.whatsapp-container {
+    flex: 1; /* Allow the WhatsApp section to grow */
+    max-width: 500px; /* Set a max width for better control */
+    padding-right: 20px; /* Add space to the right for separation */
+    margin-top:0;
+}
+
+.form-container {
+    flex: 1; /* Allow the form section to grow */
+    max-width: 900px; /* Set a max width for better control */
+}
+
+
+.contact-form {
+    display: flex;
+    flex-direction: column; /* Stack the form fields vertically */
+}
+
+.contact-form label {
+    margin-top: 10px; /* Add space between labels and inputs */
+}
+
+.contact-form input,
+.contact-form textarea {
+    margin-bottom: 10px; /* Add space below inputs and textareas */
+    padding: 8px; /* Add padding for comfort */
+    border: 1px solid #ccc; /* Add a border */
+    border-radius: 4px; /* Round the corners */
+}
+
+.contact-form button {
+    padding: 10px; /* Add padding to the button */
+    background-color: #4CAF50; /* Set a background color */
+    color: white; /* Set text color */
+    border: none; /* Remove border */
+    border-radius: 4px; /* Round the corners */
+    cursor: pointer; /* Change cursor to pointer */
+}
+
+.contact-form button:hover {
+    background-color: #45a049; /* Change background on hover */
+}
+
+.contact-form button:hover {
+    background-color: var(--accent-color);
+}
+
+/* WhatsApp Button */
+.whatsapp-container {
+    text-align: center; /* Center-align the heading and button */
+    margin: 40px 0; /* Add margin for spacing */
+    margin-top:20px;
+}
+
+#whatsapp-button {
+    display: inline-flex; /* Flexbox for alignment */
+    align-items: center; /* Center the image and text vertically */
+    background-color: #25D366; /* WhatsApp color */
+    color: white; /* Text color */
+    padding: 10px 20px; /* Padding around the button */
+    border-radius: 5px; /* Rounded corners */
+    text-decoration: none; /* Remove underline */
+    transition: background-color 0.3s; /* Smooth background change */
+
+}
+
+#whatsapp-button:hover {
+    background-color: #128C7E; /* Darker color on hover */
+}
+
+#whatsapp-button img {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+/* Persona Container */
+.persona-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2em;
+}
+
+/* Process Steps */
+
+.section-process {
+    display: flex;
+    justify-content: space-around /*space-between;*/
+    align-items: flex-start;
+    text-align: left;
+}
+
+.text-content1 {
+    flex: 0.8; /* Smaller flex factor for more control */
+    max-width: 1500px; /* Smaller width */
+    width: 100%; /* Ensure it uses the max-width as the upper limit */
+    
+    margin-right: 0px;
+}
+
+
+
 .process-steps {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2em;
-    margin-top: 2em;
+    /* grid-template-columns: repeat(2, 1fr);  Create two equal columns */
+    grid-template-columns: repeat(2, minmax(000px, 1fr));
+    gap: 5px; /* Space between steps, adjust as needed */
+    flex: 1;
+    max-width: 1500px; /* Optional: Control the maximum width of the grid */
 }
 
 .process-step {
-    background-color: #fff;
-    padding: 2em;
-    border-radius: 15px;
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1); /* 3D shadow effect */
-    cursor: pointer; /* Make them clickable */
-    transition: all 0.3s ease; /* Smooth transition for hover effect */
-    text-align: center; /* Center text for process steps */
+    @extend .card;
+    cursor: pointer;
     display: flex;
-    flex-direction: column; /* Stack icon and text */
-    align-items: center; /* Center items horizontally */
-    gap: 1em;
-    margin: 1em 0; /* Add margin for spacing */
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    background-color: #f4fbff; /* Optional: light background for contrast */
+    border-radius: 8px; /* Optional: rounded corners */
+    padding: 10px;
+    margin: 0;
+    width: 70%; /* Ensure each step fills grid cell */
+    aspect-ratio: 1 / 1; /* Enforce square shape */
 }
 
 .process-step:hover {
-    transform: translateY(-5px); /* Lift the card on hover */
-    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px var(--shadow-hover-color);
+    background-color: #003b55  /*#e0e0e0; Slightly darker shade on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
 }
 
-/* Icon for Process Steps */
+
 .process-icon {
-    font-size: 2em; /* Increased icon size for better visibility */
-    color: #ffcc00; /* Match persona icon color */
+    font-size: 2em;
+    color: var(--secondary-color);
 }
 
-@media (min-width: 768px) {
-    .persona-container {
-        grid-template-columns: 1fr 1fr 1fr;
-    }
+.process-icon img {
+    width: 2em;
+    height: 2em;
+    object-fit: contain;
 }
 
-/* Add spacing between sections */
-section {
-    padding: 100px 0;  /* Increases top and bottom padding within sections */
-    margin-bottom: 10px;  /* Adds margin space below each section */
+
+/* Google Maps Section */
+#map {
+    width: 100%;
+    height: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+/* Location Section Styles */
+.autocomplete-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.name-container {
+    display: flex;
+    gap: 10px;
+}
+
+.controls {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.location-input {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.location-container {
+    display: flex;
+    align-items: center;
+}
+
+#sendWhatsApp {
+    display: flex;
+    align-items: center;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+    min-width: 200px;
+    height: 100%;
+}
+
+#sendWhatsApp:hover {
+    background-color: #128C7E;
+}
+
+#sendWhatsApp img {
+    margin-right: 10px;
+}
+
+/* General Section Styling */
+.section {
+    margin: 20px 0;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+    text-align: center;
+}
+
+.section:first-of-type {
+    border-top: none;
+}
+
+/* New Flexbox Styles */
+.flex-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
 }
 
 .borehole-image {
-    max-width: 100%; /* Ensures the image is responsive */
-    height: auto; /* Maintains aspect ratio */
+    max-width: 50%;
+    height: auto;
+    margin-right: 20px;
+}
+
+.text-content {
+    max-width: 40%;
+    color: var(--text-color);
+    font-size: 1.1em;
+    margin-top: 250px;
+}
+
+/* Additional Styling for Images */
+.borehole-image img {
+    width: 80%;
+    height: auto;
 }
