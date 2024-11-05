@@ -102,6 +102,12 @@ header.main-header {
     border-radius: 5px; /* Rounded corners */
 }
 
+footer {
+    background-color: transparent; /* Remove the blue background */
+    color: black; /* Change text color to black */
+    text-align: center;
+    padding: 1em 0; /* Optional: Add some padding for spacing */
+}
 /* Containers */
 .container {
     width: 90%;
@@ -252,7 +258,7 @@ p {
     margin-right: 10px; /* Space between icon and text */
 }
 
-//* Persona Container */
+/* Persona Container */
 .persona-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -296,7 +302,6 @@ p {
     line-height: 1.5;
     color: #555;
 }
-
 /* Google Maps Section */
 #map {
     width: 100%;
