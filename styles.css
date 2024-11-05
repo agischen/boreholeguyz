@@ -252,77 +252,50 @@ p {
     margin-right: 10px; /* Space between icon and text */
 }
 
-/* Persona Container */
+//* Persona Container */
 .persona-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 2em;
 }
 
-/* Process Steps */
-
-.section-process {
-    display: flex;
-    justify-content: space-around /*space-between;*/
-    align-items: flex-start;
-    text-align: left;
-}
-
-.text-content1 {
-    flex: 0.8; /* Smaller flex factor for more control */
-    max-width: 1500px; /* Smaller width */
-    width: 100%; /* Ensure it uses the max-width as the upper limit */
-    
-    margin-right: 0px;
-}
-
-
-
-.process-steps {
-    display: grid;
-    /* grid-template-columns: repeat(2, 1fr);  Create two equal columns */
-    grid-template-columns: repeat(2, minmax(000px, 1fr));
-    gap: 5px; /* Space between steps, adjust as needed */
-    flex: 1;
-    max-width: 1500px; /* Optional: Control the maximum width of the grid */
-}
-
-.process-step {
+.persona-card {
     @extend .card;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    gap: 1em;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
     background-color: #f4fbff; /* Optional: light background for contrast */
     border-radius: 8px; /* Optional: rounded corners */
-    padding: 10px;
-    margin: 0;
-    width: 70%; /* Ensure each step fills grid cell */
-    aspect-ratio: 1 / 1; /* Enforce square shape */
+    padding: 20px;
+    margin: 10px 0;
 }
 
-.process-step:hover {
+.persona-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 20px var(--shadow-hover-color);
-    background-color: #003b55  /*#e0e0e0; Slightly darker shade on hover */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
 }
 
-
-.process-icon {
-    font-size: 2em;
-    color: var(--secondary-color);
-}
-
-.process-icon img {
-    width: 2em;
-    height: 2em;
+.persona-icon img {
+    width: 80px;
+    height: 80px;
     object-fit: contain;
 }
 
+.persona-name {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.5em;
+    color: var(--text-color);
+}
+
+.persona-desc {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #555;
+}
 
 /* Google Maps Section */
 #map {
