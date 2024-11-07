@@ -46,6 +46,37 @@
     color: var(--primary-color);
 }
 
+/* Style for the dropdown */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #005f99;;
+            min-width: 250px;
+            z-index: 1;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+
 /* Global Styles */
 body {
     font-family: 'Roboto', sans-serif;
@@ -141,11 +172,29 @@ p {
     margin: 1em 0 2em;
 }
 
+/* Footer */
+footer {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Horizontally center the content */
+    align-items: center; /* Vertically center the content */
+    text-align: center; /* Ensure text is centered inside the footer */
+    padding: 20px; /* Add padding for spacing */
+    background-color: var(--footer-background-color); /* Set a background color */
+    color: white; /* Set text color */
+    width: 100%; /* Ensure the footer takes up full width */
+}
+
+/* Optional: Style for the footer text or links */
+footer p {
+    margin: 0; /* Remove any default margin */
+    font-size: 1em; /* Adjust font size */
+}
+
 /* Call-to-Action Button */
 .button {
     display: inline-block;
-    background-color: var(--secondary-color);
-    color: var(--primary-color);
+    background-color: var(--primary-color); /*#005f99;*/
+    color: white;
     padding: 0.75em 2em;
     border-radius: 25px;
     text-decoration: none;
@@ -170,67 +219,73 @@ p {
 }
 
 /* Section3 */
- 
-.contact-container {
-    display: flex; /* Use flexbox for layout */
-    justify-content: space-around; /* Space between the items */
-    align-items: flex-start; /* Align items to the start */
-    margin: 10px; /* Add some margin around the container */
-}
-
-.whatsapp-container {
-    flex: 1; /* Allow the WhatsApp section to grow */
-    max-width: 500px; /* Set a max width for better control */
-    padding-right: 20px; /* Add space to the right for separation */
-}
 
 .form-container {
+    display: flex; /* Use flexbox */
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center align the children (heading, paragraph, button) */
+    justify-content: center; /* Vertically center the content */
+    text-align: center; /* Ensure text is centered inside the container */
+    margin: 40px 0;
+    padding: 30px;
     flex: 1; /* Allow the form section to grow */
+    width: 100%; /* Ensure the form takes up the full width */
     max-width: 1200px; /* Set a max width for better control */
+    border-radius: 8px;
+    background-color: var(--background-color); /* Soft background to highlight the section */
 }
-
 
 .contact-form {
     display: flex;
     flex-direction: column; /* Stack the form fields vertically */
+    width: 100%; /* Ensure form fields take up full width */
 }
 
 .contact-form label {
     margin-top: 10px; /* Add space between labels and inputs */
+    font-weight: bold; /* Bold labels for better visibility */
 }
 
 .contact-form input,
 .contact-form textarea {
-    margin-bottom: 10px; /* Add space below inputs and textareas */
-    padding: 8px; /* Add padding for comfort */
-    border: 1px solid #ccc; /* Add a border */
-    border-radius: 4px; /* Round the corners */
+    width: 100%; /* Make the input boxes take up 100% of the container's width */
+    max-width: 100%; /* Ensure no larger than container width */
+    margin-bottom: 20px; /* Increased spacing for more comfort */
+    padding: 15px; /* More padding inside the inputs for better comfort */
+    font-size: 1.1em; /* Increase font size for better readability */
+    border: 1px solid #ccc; /* Soft border for input fields */
+    border-radius: 8px; /* Larger rounded corners for a softer, modern look */
+    background-color: #f0f8ff;/* Light background for input fields */
+    font-family: Arial, sans-serif; /* Clean, easy-to-read font */
+    transition: all 0.3s ease; /* Smooth transition for focus and hover effects */
+    box-sizing: border-box; /* Include padding and border in width */
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #4CAF50; /* Highlight the border on focus */
+    outline: none; /* Remove default focus outline */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.6); /* Subtle shadow effect */
 }
 
 .contact-form button {
-    padding: 10px; /* Add padding to the button */
-    background-color: #4CAF50; /* Set a background color */
+    padding: 12px 20px; /* Increase button padding for better click area */
+    background-color: var(--primary-color); /* Set a background color */
     color: white; /* Set text color */
     border: none; /* Remove border */
     border-radius: 4px; /* Round the corners */
     cursor: pointer; /* Change cursor to pointer */
+    font-size: 1.1em; /* Make the button text slightly larger */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth hover transition */
+    margin-top: 20px; /* Add some spacing above the button */
 }
 
 .contact-form button:hover {
-    background-color: #45a049; /* Change background on hover */
+    background-color: #45a049; /* Lighter green shade on hover */
+    transform: translateY(-2px); /* Slight movement effect */
 }
 
-.contact-form button:hover {
-    background-color: var(--accent-color);
-}
-
-/* WhatsApp Button */
-.whatsapp-container {
-    text-align: center; /* Center-align the heading and button */
-    margin: 40px 0; /* Add margin for spacing */
-}
-
-#whatsapp-button {
+.whatsapp-container #whatsapp-button {
     display: inline-flex; /* Flexbox for alignment */
     align-items: center; /* Center the image and text vertically */
     background-color: #25D366; /* WhatsApp color */
@@ -238,15 +293,40 @@ p {
     padding: 10px 20px; /* Padding around the button */
     border-radius: 5px; /* Rounded corners */
     text-decoration: none; /* Remove underline */
-    transition: background-color 0.3s; /* Smooth background change */
+    transition: background-color 0.3s, box-shadow 0.3s; /* Smooth background change */
+    font-size: 1.2em; /* Increase font size for better visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
 }
 
 #whatsapp-button:hover {
     background-color: #128C7E; /* Darker color on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
 }
 
 #whatsapp-button img {
     margin-right: 10px; /* Space between icon and text */
+}
+
+/* Responsive Layout for smaller screens */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+        align-items: center; /* Center align the items */
+    }
+
+    .whatsapp-container, .form-container {
+        max-width: 100%; /* Full width on small screens */
+        padding: 10px;
+    }
+
+    .contact-form label {
+        margin-top: 8px; /* Slightly reduce margin on small screens */
+    }
+
+    #whatsapp-button {
+        width: 100%; /* Make the WhatsApp button full-width */
+        justify-content: center; /* Center the content of the button */
+    }
 }
 
 /* Persona Container */
@@ -296,30 +376,21 @@ p {
 
 /* Process Steps */
 
-.section-process {
-    display: flex;
-    justify-content: space-around /*space-between;*/
-    align-items: flex-start;
-    text-align: left;
-}
-
-.text-content1 {
-    flex: 0.8; /* Smaller flex factor for more control */
-    max-width: 1500px; /* Smaller width */
-    width: 100%; /* Ensure it uses the max-width as the upper limit */
-    
+.text-content {
+    flex: 0.8; /* Controls how much space this takes relative to other items */
+    max-width: 1500px; /* Optional: smaller width */
+    width: 100%; /* Use max-width as the upper limit */
     margin-right: 0px;
 }
 
-
-
 .process-steps {
     display: grid;
-    /* grid-template-columns: repeat(2, 1fr);  Create two equal columns */
-    grid-template-columns: repeat(2, minmax(000px, 1fr));
-    gap: 5px; /* Space between steps, adjust as needed */
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 50px; /* Space between steps */
     flex: 1;
-    max-width: 1500px; /* Optional: Control the maximum width of the grid */
+    max-width: 1000px; /* Control the maximum width */
+    width: 70%; /* Width of the container */
+    margin: 20px auto; /* Center the container and add top margin */
 }
 
 .process-step {
@@ -328,15 +399,31 @@ p {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 5px;
+    justify-content: space-between;
+    text-align: center;
+    gap: 25px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
     background-color: #f4fbff; /* Optional: light background for contrast */
     border-radius: 8px; /* Optional: rounded corners */
-    padding: 10px;
+    padding: 20px;
     margin: 0;
-    width: 70%; /* Ensure each step fills grid cell */
-    aspect-ratio: 1 / 1; /* Enforce square shape */
+    width: 100%; /* Ensure each step fills grid cell */
+    min-height: 250px;
+    height: auto;
+   /* aspect-ratio: 1 / 1; /* Enforce square shape */
+}
+
+/* Ensure heading and text are aligned correctly with consistent spacing */
+.process-step h3 {
+    margin: 0; /* Remove default margin */
+    padding-bottom: 10px; /* Add a small space between heading and text */
+}
+
+.process-step p {
+    margin: 0; /* Remove default margin */
+    padding-top: 5px; /* Add consistent space above the paragraph */
+    line-height: 1.5; /* Optional: for improved readability */
 }
 
 .process-step:hover {
@@ -442,21 +529,10 @@ p {
     margin: 20px 0;
 }
 
-.borehole-image {
-    max-width: 50%;
-    height: auto;
-    margin-right: 20px;
-}
-
-.text-content {
-    max-width: 40%;
-    color: var(--text-color);
-    font-size: 1.1em;
-    margin-top: 250px;
-}
-
-/* Additional Styling for Images */
-.borehole-image img {
-    width: 80%;
-    height: auto;
+.borehole-image, .process-image .get-in-touch-image .share-location {
+    width: 100%;            /* Ensure both images scale to the container width */
+    height: auto;           /* Height adjusts proportionally */
+    object-fit: cover;      /* Ensures the images cover the container */
+    display: block;
+    margin: 0 auto;         /* Centers the images horizontally */
 }
