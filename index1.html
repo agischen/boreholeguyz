@@ -25,6 +25,17 @@
     </ul>
 </nav>
 
+        <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navbar = document.querySelector('.navbar');
+        
+        menuToggle.addEventListener('click', () => {
+            navbar.classList.toggle('active');
+        });
+    });
+</script>
+
 
 
         <h1>Secure Your Water Future </h1>
@@ -34,7 +45,7 @@
 
     <section class="section">
         <div class="process-image">
-                <img src="images/Benefits-of-water.jpg" alt="Benefits of water">
+                <img src="Benefits-of-water.jpg" alt="Benefits of water">
         </div>
 
     <div class="container">
@@ -43,17 +54,17 @@
         
         <div class="persona-container">
             <div class="persona-card" onclick="window.location.href='water-starter.html'">
-                <span class="persona-icon"><img src="images/water-droplet.png" alt="Water Droplet"/> </span>
+                <span class="persona-icon"><img src="water-droplet.png" alt="Water Droplet"/> </span>
                 <h3 class="persona-name">The Water Starter</h3>
                 <p class="persona-desc">Begin securing your water future today.</p>
             </div>
             <div class="persona-card" onclick="window.location.href='tank-transformer.html'">
-                <span class="persona-icon"><img src="images/water-tank.png" alt="Water Tank"/> </span>
+                <span class="persona-icon"><img src="water-tank.png" alt="Water Tank"/> </span>
                 <h3 class="persona-name">The Tank Transformer</h3>
                 <p class="persona-desc">Turn your JoJo tank into a powerhouse.</p>
             </div>
             <div class="persona-card" onclick="window.location.href='water-warrior.html'">
-                <span class="persona-icon"><img src="images/water-warrior.png" alt="Water Warrior"/> </span>
+                <span class="persona-icon"><img src="water-warrior.png" alt="Water Warrior"/> </span>
                 <h3 class="persona-name">The Water Warrior</h3>
                 <p class="persona-desc">Achieve complete water independence.</p>
             </div>
