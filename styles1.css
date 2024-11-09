@@ -110,7 +110,7 @@
 /* Reduce image size and center on desktop */
 @media (min-width: 1024px) {
     .image {
-        width: 50%;  /* Reduce the image to 50% of the screen width */
+        width: 80%;  /* Reduce the image to 50% of the screen width */
         margin: 0 auto; /* Center the image horizontally */
         display: block; /* Ensure the image is treated as a block element */
     }
