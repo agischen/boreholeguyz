@@ -69,21 +69,6 @@
     display: block;
 }
 
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
-    /* Keep the navbar horizontal */
-    .nav-list {
-        flex-direction: row; /* Ensure items are aligned in a row */
-        justify-content: space-around; /* Distribute items evenly */
-    }
-
-    /* Make the dropdown menu full-width on mobile */
-    .dropdown-menu {
-        position: static;
-        width: 100%; /* Take up the full width */
-    }
-}
-
 /* Container Styling */
 .container {
     text-align: center;
@@ -94,11 +79,13 @@
     flex-direction: column; /* Stack content vertically */
     align-items: center;    /* Center align items horizontally */
     justify-content: center; /* Vertically center content */
+    margin-left: auto; /* Center container horizontally */
+    margin-right: auto; /* Center container horizontally */
 }
 
 /* Image Styling */
 .image {
-    width: 100%;
+    width: 100%; /* Default image size */
     height: auto;
     border-radius: 8px;  /* Optional: rounded corners */
 }
