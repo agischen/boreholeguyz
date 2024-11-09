@@ -3,6 +3,10 @@
     background-color: #333;
     padding: 10px 20px;
     font-family: Arial, sans-serif;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000; /* Ensure the navbar is always on top */
 }
 
 .nav-list {
@@ -82,57 +86,39 @@
     }
 }
 
-/* General reset for margin and padding */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-}
-
+/* Container Styling */
 .container {
     text-align: center;
     width: 100%;
-    max-width: 100%;   /* Ensure full width on all screens */
-    padding: 10px;     /* Padding to give some space inside */
-    box-sizing: border-box; /* Includes padding in width calculation */
+    max-width: 600px;  /* Restrict the max width on larger screens */
+    margin-top: 80px;   /* Add top margin to avoid overlap with fixed navbar */
 }
 
+/* Image Styling */
 .image {
-    width: 50%;        /* Image scales to the container's width */
-    height: auto;       /* Maintain aspect ratio */
-    border-radius: 8px; /* Optional: adds rounded corners */
+    width: 100%;
+    height: auto;
+    border-radius: 8px;  /* Optional: rounded corners */
 }
 
-.text {
-    font-size: 1.5em;    /* Size of the text */
-    color: #333;         /* Text color */
-    margin-top: 15px;    /* Space between image and text */
-}
-
-/* Mobile-specific adjustments for devices under 768px */
-@media (max-width: 768px) {
+/* Reduce image size on desktop */
+@media (min-width: 1024px) {
     .image {
-        width: 100%;    /* Scales the image fully to the screen */
-        height: auto;   /* Maintains aspect ratio */
+        width: 50%;  /* Reduce the image to 50% of the screen width */
     }
+}
+
+/* Text Styling */
+.text {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 15px;
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
     .text {
         font-size: 1.2em;
         margin-top: 10px;
-    }
-}
-
-/* For larger mobile devices (like Galaxy Note 10 Lite) */
-@media (max-width: 1024px) {
-    .image {
-        width: 100%;    /* Ensure it scales properly for mid-size screens */
     }
 }
