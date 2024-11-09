@@ -82,8 +82,6 @@
     }
 }
 
-
-
 /* General reset for margin and padding */
 * {
     margin: 0;
@@ -109,7 +107,7 @@ body {
 }
 
 .image {
-    width: 100%;        /* Image scales to the container's width */
+    width: 50%;        /* Image scales to the container's width */
     height: auto;       /* Maintain aspect ratio */
     border-radius: 8px; /* Optional: adds rounded corners */
 }
