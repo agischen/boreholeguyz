@@ -541,10 +541,26 @@ footer p {
     margin: 20px 0;
 }
 
-.borehole-image, .process-image .get-in-touch-image .share-location {
-    width: 100%;            /* Ensure both images scale to the container width */
-    height: auto;           /* Height adjusts proportionally */
-    object-fit: cover;      /* Ensures the images cover the container */
+/* .borehole-image, .process-image .get-in-touch-image .share-location {
+    width: 100%;            /* Ensure both images scale to the container width 
+    height: auto;           /* Height adjusts proportionally 
+    object-fit: cover;      /* Ensures the images cover the container 
     display: block;
-    margin: 0 auto;         /* Centers the images horizontally */
+    margin: 0 auto;         /* Centers the images horizontally 
+} */
+
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+    .borehole-image, .process-image, .get-in-touch-image, .share-location {
+        margin: 10px auto !important; /* Add spacing around images for smaller screens */
+        padding: 5px !important;      /* Add padding to prevent content from touching the edges */
+        object-fit: contain !important; /* Ensure the entire image is visible */
+        display: block !important;    /* Ensures images are block-level */
+        width: 100% !important;       /* Ensures images scale to fit their container */
+    }
+
+    .container {
+        padding: 1em !important;      /* Reduce padding for better use of space */
+    }
 }
+
