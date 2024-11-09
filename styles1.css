@@ -103,18 +103,27 @@
     border-radius: 8px;  /* Optional: rounded corners */
 }
 
-/* Reduce image size on desktop */
-@media (min-width: 1024px) {
-    .image {
-        width: 50%;  /* Reduce the image to 50% of the screen width */
-    }
-}
-
 /* Text Styling */
 .text {
     font-size: 1.5em;
     color: #333;
     margin-top: 15px;
+    text-align: center;  /* Center the text horizontally */
+}
+
+/* Reduce image size and center on desktop */
+@media (min-width: 1024px) {
+    .image {
+        width: 50%;  /* Reduce the image to 50% of the screen width */
+        margin: 0 auto; /* Center the image horizontally */
+        display: block; /* Ensure the image is treated as a block element */
+    }
+
+    .text {
+        font-size: 1.5em; /* Maintain the font size on desktop */
+        margin-top: 20px; /* Adjust top margin if needed */
+        text-align: center;  /* Ensure the text is centered */
+    }
 }
 
 /* Mobile-specific adjustments */
