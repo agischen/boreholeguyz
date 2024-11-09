@@ -20,6 +20,11 @@
     background-color: var(--primary-color);
     padding: 1em;
     text-align: center;
+    position: fixed; /* Keeps the navbar fixed at the top */
+    top: 0; /* Positions it at the very top of the page */
+    left: 0; /* Aligns it to the left edge */
+    width: 100%; /* Ensures the navbar spans the full width of the page */
+    z-index: 1000; /* Ensures it stays above other content */
 }
 
 .navbar ul {
@@ -118,6 +123,7 @@ header.main-header {
 }
 
 .main-title {
+    padding: 2em;
     font-size: 3em; /* Increased font size for the title */
     color: var(--text-color); /* Use the text color variable */
     margin: 0; /* Remove margin */
