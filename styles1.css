@@ -92,6 +92,11 @@
     width: 100%;
     max-width: 600px;  /* Restrict the max width on larger screens */
     margin-top: 80px;   /* Add top margin to avoid overlap with fixed navbar */
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;    /* Center align items horizontally */
+    justify-content: center; /* Vertically center content */
+}
 }
 
 /* Image Styling */
