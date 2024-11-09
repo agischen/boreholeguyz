@@ -551,7 +551,7 @@ footer p {
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
-    .borehole-image, .process-image, .get-in-touch-image, .share-location {
+     .process-image, .get-in-touch-image, .share-location {
         margin: 10px auto !important; /* Add spacing around images for smaller screens */
         padding: 5px !important;      /* Add padding to prevent content from touching the edges */
         object-fit: contain !important; /* Ensure the entire image is visible */
@@ -563,4 +563,21 @@ footer p {
         padding: 1em !important;      /* Reduce padding for better use of space */
     }
 }
+/* Mobile-specific adjustments for devices under 768px */
+@media (max-width: 768px) {
+    .borehole-image, {
+        width: 100%;    /* Scales the image fully to the screen */
+        height: auto;   /* Maintains aspect ratio */
+    }
+    .main-title {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+}
 
+/* For larger mobile devices (like Galaxy Note 10 Lite) */
+@media (max-width: 1024px) {
+   .borehole-image, {
+        width: 100%;    /* Ensure it scales properly for mid-size screens */
+    }
+}
