@@ -119,15 +119,19 @@ header.main-header {
     display: flex; /* Use flexbox for alignment */
     justify-content: center; /* Center items horizontally */
     align-items: center; /* Center items vertically */
-    margin-bottom: 40px; /* Add space at the bottom */
+    margin-bottom: 10px; /* Add space at the bottom */
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text */
 }
 
 .main-title {
     padding: 2em;
     font-size: 3em; /* Increased font size for the title */
     color: var(--text-color); /* Use the text color variable */
-    margin: 0; /* Remove margin */
+    /*margin: 0;  Remove margin */
     margin-right: 10px; /* Add some space to the right of the title */
+    margin-bottom: 0px; /* Add space between the title and the subtitle */
+    line-height: 0; /* Reduce line height if needed */
 }
 
 .price {
@@ -135,8 +139,10 @@ header.main-header {
     font-size: 2.5em; /* Increased font size for the price */
     font-weight: bold; /* Make the price bold */
     background-color: #005f99; /* Background color */
-    padding: 10px 15px; /* Padding for spacing */
+    padding: 25px 15px; /* Padding for spacing */
     border-radius: 5px; /* Rounded corners */
+    margin-top: 0; /* Remove top margin if needed */
+    line-height: 0; /* Reduce line height if needed */
 }
 
 /* Containers */
