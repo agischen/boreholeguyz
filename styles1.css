@@ -71,18 +71,16 @@
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
+    /* Keep the navbar horizontal */
     .nav-list {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .nav-list li {
-        margin: 10px 0;
+        flex-direction: row; /* Ensure items are aligned in a row */
+        justify-content: space-around; /* Distribute items evenly */
     }
 
+    /* Make the dropdown menu full-width on mobile */
     .dropdown-menu {
         position: static;
-        width: 100%;
+        width: 100%; /* Take up the full width */
     }
 }
 
@@ -96,7 +94,6 @@
     flex-direction: column; /* Stack content vertically */
     align-items: center;    /* Center align items horizontally */
     justify-content: center; /* Vertically center content */
-}
 }
 
 /* Image Styling */
