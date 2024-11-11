@@ -192,6 +192,10 @@
         font-size: 1.5em; /* Maintain the font size on desktop */
         margin-top: 20px; /* Adjust top margin if needed */
     }
+    .button {
+        display: inline-block; /* Ensure the button is displayed */
+        margin-top: 1.5em; /* Adjust margin if needed */
+    }
 }
 
 /* Mobile-specific adjustments */
