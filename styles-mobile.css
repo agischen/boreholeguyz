@@ -77,6 +77,23 @@
         .dropdown-content a:hover {
             background-color: #ddd;
         }
+/* Call-to-Action Button */
+.button {
+    display: inline-block;
+    background-color: var(--primary-color); /*#005f99;*/
+    color: white;
+    padding: 0.75em 2em;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 1.5em;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+    color: var(--accent-color);
+}
 
 /* Container Styling */
 .container {
