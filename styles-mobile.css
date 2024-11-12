@@ -49,46 +49,53 @@
 }
 
 /* Style for the dropdown */
-        .dropdown {
-            position: relative;
-            display: inline-block;
+.dropdown {
+	position: relative;
+    display: inline-block;
         }
 
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #005f99;;
-            min-width: 250px;
-            z-index: 1;
-            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #005f99;;
+    min-width: 250px;
+    z-index: 1;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .dropdown:hover .dropdown-content {
-            display: block;
+.dropdown:hover .dropdown-content {
+    display: block;
         }
 
-        .dropdown-content a {
-            color: black;
-            padding: 12px 16px;
-            text-decoration: none;
-            display: block;
+.dropdown-content a {
+	color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
         }
 
-        .dropdown-content a:hover {
-            background-color: #ddd;
+.dropdown-content a:hover {
+    background-color: #ddd;
         }
 
 /* Call-to-Action Button */
+
+.button-container {
+    margin-top: -250px;  /* Move the button closer to the content above it */
+    padding: 10px 20px; /* Adjust the padding to make the button look better */
+}
 .button {
     display: inline-block;
     background-color: var(--primary-color); /*#005f99;*/
     color: white;
-    padding: 0.75em 2em;
+    /*padding: 0.75em 2em;*/
     border-radius: 25px;
     text-decoration: none;
     font-weight: bold;
-    margin-top: 1.5em;
+    /*margin-top: 1.5em;*/
     transition: background-color 0.3s;
+    margin-top: -250px;  /* Move the button closer to the content above it */
+    padding: 10px 20px; /* Adjust the padding to make the button look better */
 }
 
 .button:hover {
@@ -96,8 +103,61 @@
     color: var(--accent-color);
 }
 
+/* Footer Styling */
+footer {
+    display: block; /* Ensure the footer is displayed as a block element */
+    width: 100%; /* Ensure the footer spans the full width */
+    background-color: white /*var(--background-color);  Adjust as needed */
+    padding: 20px; /* Add padding for space */
+    text-align: center; /* Center the text inside */
+    position: relative; /* Ensure it's positioned relative */
+    z-index: 1; /* Adjust to ensure it's above lower layers */
+}
 
-/* Container Styling */
+/* Optional: Ensure footer text or links are visible */
+footer p {
+   /* margin: 0; /* Remove default margin */
+    font-size: 1em; /* Adjust font size */
+    color: var(--text-color); /* Set text color */
+}
+
+/* Add margin to push footer into view if necessary */
+
+body {
+    margin-bottom: 100px; /* Adjust value as needed to create space for the footer */
+}
+
+/* Persona pages header formatting */
+.persona-header-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px; /* Add space at the bottom */
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text */
+}
+
+.persona-title {
+    padding: 2em;
+    font-size: 3em; /* Increased font size for the title */
+    color: var(--text-color); /* Use the text color variable */
+    /*margin: 0;  Remove margin */
+    margin-right: 10px; /* Add some space to the right of the title */
+    margin-bottom: 0px; /* Add space between the title and the subtitle */
+    line-height: 0; /* Reduce line height if needed */
+}
+.persona-price {
+    color: white; /* Set the price color to white */
+    font-size: 2.5em; /* Increased font size for the price */
+    font-weight: bold; /* Make the price bold */
+    background-color: #005f99; /* Background color */
+    padding: 25px 15px; /* Padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 0; /* Remove top margin if needed */
+    line-height: 0; /* Reduce line height if needed */
+}
+
+/* General Container Styling */
 .container {
     text-align: center;
     width: 100%;
@@ -111,7 +171,43 @@
     margin-right: auto; /* Center container horizontally */
 }
 
-/* Image Container */
+
+/* Text Styling */
+.text-container {
+    text-align: center;  /* Center the text horizontally */
+}
+
+.text-content {
+    flex: 0.8; /* Controls how much space this takes relative to other items */
+    max-width: 1500px; /* Optional: smaller width */
+    width: 100%; /* Use max-width as the upper limit */
+    margin-right: 0px;
+    margin-bottom:5px;
+}
+.text {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 15px;
+}
+
+.text-container p {
+    margin-bottom: 5px; /* Reduce space below "Who’s This Solution For?" */
+}
+
+.container h2 {
+    margin-top: 2px; /* Reduce space above "Choose Your Water Solution" */
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 15px;
+}
+
+.container p {
+    margin-top: 2px; /* Adjust the space above the paragraph text */
+    font-size: 1.2em; /* Adjust font size as needed */
+    color: #333;
+}
+
+/* General Image Container */
 .image-container {
     width: 100%;
     display: flex;
@@ -124,57 +220,51 @@
     border-radius: 8px;  /* Optional: rounded corners */
 }
 
-/* Text Styling */
-.text-container {
-    text-align: center;  /* Center the text horizontally */
-}
-
-.text {
-    font-size: 1.5em;
-    color: #333;
-    margin-top: 15px;
-}
-
- 
-
-/* Persona Container 
-.persona-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2em;
-} */
-
-/* Persona Container */
+ /* Persona Container */
 .persona-container {
     display: flex;
     flex-direction: column; /* Default to vertical layout for mobile */
     gap: 2em; /* Space between cards */
     align-items: center; /* Center align cards */
     width: 100%; /* Ensure it takes the full width */
+    margin: 0;
 }
 
-/* Persona Card */
+/* Persona Container Styling */
+.persona-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates responsive grid with columns */
+    gap: 2em; /* Space between cards */
+    width: 100%; /* Full width */
+    margin: 0 auto; /* Center the container */
+    padding: 1em; /* Optional: add padding */
+    align-items: center;  /* Horizontally center the content */
+    justify-content: center;  /* Vertically center the content */
+}
 
+/* Persona Card Styling */
 .persona-card {
-    @extend .card;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    gap: 1em;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect  */
-    background-color: #f4fbff; /* Optional: light background for contrast */
-    border-radius: 8px; /* Optional: rounded corners */
+    align-items: center;  /* Horizontally center the content */
+    justify-content: center;  /* Vertically center the content */
+    width: 200px; /* Adjust as necessary */
+    height: 300px; /* Adjust as necessary */
     padding: 20px;
-    margin: 0;  New: Remove top/bottom margin for horizontal alignment 
-   /*  flex-basis: calc(30% - 2em); New: Adjust width for 3 cards per row */
-        /* This ensures that 3 cards fit in one row */
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;  /* Ensure text inside is also centered */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 250px; 
 }
 
 .persona-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 20px var(--shadow-hover-color);
+}
+
+.persona-icon {
+    margin-bottom: 15px; /* Space between image and text */
 }
 
 .persona-icon img {
@@ -193,10 +283,76 @@
     font-size: 1em;
     line-height: 1.5;
     color: #555;
+    padding: 0 10px; /* Prevent text from going out of bounds */
+}
+
+/* Process steps formatting */
+
+.process-steps {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 50px; /* Space between steps */
+    flex: 1;
+    max-width: 1000px; /* Control the maximum width */
+    width: 70%; /* Width of the container */
+    margin: 20px auto; /* Center the container and add top margin */
+}
+
+.process-step {
+    @extend .card;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+    gap: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    background-color: #f4fbff; /* Optional: light background for contrast */
+    border-radius: 8px; /* Optional: rounded corners */
+    padding: 20px;
+    margin: 0;
+    width: 100%; /* Ensure each step fills grid cell */
+    min-height: 250px;
+    height: auto;
+    aspect-ratio: 1 / 1; /* Enforce square shape */
+}
+
+/* Ensure heading and text are aligned correctly with consistent spacing */
+.process-step h3 {
+    margin: 0; /* Remove default margin */
+    padding-bottom: 10px; /* Add a small space between heading and text */
+}
+
+.process-step p {
+    margin: 0; /* Remove default margin */
+    padding-top: 5px; /* Add consistent space above the paragraph */
+    line-height: 1.5; /* Optional: for improved readability */
+}
+
+.process-step:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 20px var(--shadow-hover-color);
+    background-color: #003b55  /*#e0e0e0; Slightly darker shade on hover */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
 }
 
 
-/* Reduce image size and center on desktop */
+.process-icon {
+    font-size: 2em;
+    color: var(--secondary-color);
+}
+
+.process-icon img {
+    width: 2em;
+    height: 2em;
+    object-fit: contain;
+}
+
+
+
+/* Adapt to media size */
 @media (min-width: 1024px) {
     .image {
         width: 120%;  /* Reduce the image to 50% of the screen width */
@@ -208,21 +364,20 @@
         font-size: 1.5em; /* Maintain the font size on desktop */
         margin-top: 20px; /* Adjust top margin if needed */
     }
-        .button {
+    .button {
         display: inline-block; /* Ensure the button is displayed */
         margin-top: 1.5em; /* Adjust margin if needed */
     }
-      .persona-container {
-        flex-direction: row; /* Change to horizontal layout for desktop */
-        justify-content: space-between; /* Space cards evenly */
-        /* New: Ensures cards are displayed horizontally */
+
+    .persona-container {
+        grid-template-columns: repeat(3, 1fr); /* Display 3 cards in a row */
+        gap: 3em; /* Space between cards */
+        aspect-ratio: 1 / 1; /* Enforce square shape */
     }
-    
-     .persona-card {
-        margin: 0; /* New: Remove top/bottom margin for horizontal alignment */
-        /*flex-basis: calc(30% - 1em); /* New: Adjust width for 3 cards per row */
-         This ensures that 3 cards fit in one row */
-        width: 40%; /* Adjust this value for flexible sizing */
+
+    .persona-card {
+        aspect-ratio: 1 / 1; /* Maintain square shape */
+        width: 100%; /* Fill the column */
     }
 }
 
