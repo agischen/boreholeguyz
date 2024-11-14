@@ -563,48 +563,36 @@ body {
 
 /* Mobile-specific styles for the button */
 @media only screen and (max-width: 768px) {
-    .button-container {
-        margin-top: -200px;  /* Adjust button position on smaller screens */
+    /* Ensure persona cards are centered */
+    .persona-cards-container {
+        display: flex; /* Use flexbox for centering */
+        flex-direction: column; /* Stack persona cards vertically */
+        align-items: center; /* Center the persona cards horizontally */
+        justify-content: flex-start; /* Align items at the top */
+        width: 100%; /* Full width */
+        padding-top: 20px; /* Add some space at the top */
+        overflow: visible; /* Ensure no scroll */
     }
 
-    .button {
-        padding: 8px 15px; /* Adjust button padding for smaller screens */
-        font-size: 16px; /* Adjust font size */
-    }
-
-    /* Adjust persona cards for mobile */
     .persona-card {
-        width: 100%; /* Make persona cards take up the full width on mobile */
-        height: auto; /* Adjust height based on content */
-        margin-bottom: 20px; /* Reduce margin for mobile */
+        width: 90%; /* Make persona cards take up 90% of the screen width */
+        max-width: 350px; /* Limit the maximum width of persona cards */
+        margin-bottom: 20px; /* Space between cards */
+        text-align: center; /* Center the text inside the persona cards */
     }
 
-    /* Make process steps more responsive on mobile */
-    .process-steps {
-        flex-direction: column; /* Stack process steps vertically on mobile */
-        gap: 15px; /* Adjust gap for mobile */
-    }
-
-    .process-step {
-        width: 100%; /* Make process steps take up full width */
-        padding: 15px; /* Adjust padding */
-    }
-
-    /* General container adjustments */
+    /* Ensure the container and card elements do not overlap the button */
     .container {
-        margin-top: 60px; /* Adjust top margin for mobile */
+        padding-bottom: 120px; /* Ensure space for the fixed button at the bottom */
     }
 
-    /* Persona title adjustment */
-    .persona-title {
-        font-size: 2.5em; /* Reduce font size for mobile */
-        padding: 1em; /* Adjust padding for mobile */
-    }
-
-    /* Persona price styling */
-    .persona-price {
-        font-size: 2em; /* Reduce font size */
-        padding: 20px 10px; /* Adjust padding */
+    /* Adjust the 'Get in Touch' button to stay at the bottom */
+    .button-container {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
     }
 
     .text {
