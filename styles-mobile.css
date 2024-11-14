@@ -561,47 +561,54 @@ body {
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
 
-    .persona-container {
-        display: flex;
-        flex-direction: column; /* Stack cards vertically */
-        gap: 15px; /* Space between cards */
-        width: 100%; /* Ensure full width */
+/* Mobile-specific styles for the button */
+@media only screen and (max-width: 768px) {
+    .button-container {
+        margin-top: -200px;  /* Adjust button position on smaller screens */
     }
 
+    .button {
+        padding: 8px 15px; /* Adjust button padding for smaller screens */
+        font-size: 16px; /* Adjust font size */
+    }
+
+    /* Adjust persona cards for mobile */
     .persona-card {
-        width: 100%; /* Full width of the container */
-        flex: 1; /* Allow equal spacing */
+        width: 100%; /* Make persona cards take up the full width on mobile */
+        height: auto; /* Adjust height based on content */
+        margin-bottom: 20px; /* Reduce margin for mobile */
     }
 
-    .persona-card:last-child {
-        margin-bottom: 50px; /* Add space at the bottom to avoid button overlap */
+    /* Make process steps more responsive on mobile */
+    .process-steps {
+        flex-direction: column; /* Stack process steps vertically on mobile */
+        gap: 15px; /* Adjust gap for mobile */
     }
 
-	.button-container {
-    width: 100%; /* Ensure button fits the screen */
-    display: flex;
-    justify-content: center; /* Center the button */
-    margin-top: 20px; /* Add spacing above the button */
-	}
+    .process-step {
+        width: 100%; /* Make process steps take up full width */
+        padding: 15px; /* Adjust padding */
+    }
+
+    /* General container adjustments */
+    .container {
+        margin-top: 60px; /* Adjust top margin for mobile */
+    }
+
+    /* Persona title adjustment */
+    .persona-title {
+        font-size: 2.5em; /* Reduce font size for mobile */
+        padding: 1em; /* Adjust padding for mobile */
+    }
+
+    /* Persona price styling */
+    .persona-price {
+        font-size: 2em; /* Reduce font size */
+        padding: 20px 10px; /* Adjust padding */
+    }
 
     .text {
         font-size: 1.2em;
         margin-top: 10px;
-    }
-    
-    .process-step {
-        width: 90%; /* Adjust width for smaller screens */
-        height: auto; /* Let height adapt to content on mobile */
-    }
 }
 
-    .text {
-        font-size: 1.2em;
-        margin-top: 10px;
-    }
-    
-    .process-step {
-        width: 90%; /* Adjust width for smaller screens */
-        height: auto; /* Let height adapt to content on mobile */
-    }
-}
