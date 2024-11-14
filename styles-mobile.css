@@ -215,7 +215,7 @@ body {
     width: 100%;
     display: flex;
     justify-content: center; /* Center the image horizontally */
-    margin-top: -70px; Adjust this value to decrease the gap */
+    margin-top: 0; Adjust this value to decrease the gap */
 }
 
 .image {
