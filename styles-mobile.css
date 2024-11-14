@@ -558,14 +558,42 @@ body {
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
 
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+
     .persona-container {
-        display: block; /* Use block to stack cards vertically */
+        display: flex;
+        flex-direction: column; /* Stack cards vertically */
+        gap: 15px; /* Space between cards */
+        width: 100%; /* Ensure full width */
     }
 
     .persona-card {
-        margin-bottom: 15px; /* Add space between cards */
         width: 100%; /* Full width of the container */
+        flex: 1; /* Allow equal spacing */
     }
+
+    .persona-card:last-child {
+        margin-bottom: 50px; /* Add space at the bottom to avoid button overlap */
+    }
+
+	.button-container {
+    width: 100%; /* Ensure button fits the screen */
+    display: flex;
+    justify-content: center; /* Center the button */
+    margin-top: 20px; /* Add spacing above the button */
+	}
+
+    .text {
+        font-size: 1.2em;
+        margin-top: 10px;
+    }
+    
+    .process-step {
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Let height adapt to content on mobile */
+    }
+}
 
     .text {
         font-size: 1.2em;
