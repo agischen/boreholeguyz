@@ -99,8 +99,9 @@
 }
 
 .button:hover {
-    background-color: var(--button-hover-color);
-    color: var(--accent-color);
+    background-color: #128C7E; /* Darker shade for hover */
+    transform: translateY(-3px); /* Subtle lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
 /* Footer Styling */
@@ -178,11 +179,12 @@ body {
 }
 
 .text-content {
+    
     flex: 0.8; /* Controls how much space this takes relative to other items */
     max-width: 1500px; /* Optional: smaller width */
     width: 100%; /* Use max-width as the upper limit */
     margin-right: 0px;
-    margin-bottom:5px;
+    margin-bottom:10px;
 }
 .text {
     font-size: 1.5em;
@@ -209,10 +211,11 @@ body {
 
 /* General Image Container */
 .image-container {
+
     width: 100%;
     display: flex;
     justify-content: center; /* Center the image horizontally */
-    margin-top: -70px; /* Adjust this value to decrease the gap */
+    margin-top: -70px; Adjust this value to decrease the gap */
 }
 
 .image {
@@ -312,8 +315,9 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
     width: 250px; /* Fixed width */
-    height: 350px; /* Fixed height to make all boxes uniform */
-    overflow: hidden; /* Prevents overflow if content exceeds the box */
+    min-height: 350px; /* Set minimum height for consistency */
+    overflow: hidden; /* Prevent overflow */
+
 }
 
 /* Ensure heading and text are aligned correctly with consistent spacing */
@@ -553,6 +557,17 @@ body {
 
 /* Mobile-specific adjustments */
 @media (max-width: 768px) {
+
+    .persona-container {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Flexible columns */
+        gap: 10px; /* Reduced gap for smaller screens */
+    }
+
+    .persona-card {
+        width: 100%; /* Full width of the column */
+        height: auto; /* Dynamic height for content */
+    }
+
     .text {
         font-size: 1.2em;
         margin-top: 10px;
@@ -562,8 +577,4 @@ body {
         width: 90%; /* Adjust width for smaller screens */
         height: auto; /* Let height adapt to content on mobile */
     }
-}
-    
-    
-    
 }
