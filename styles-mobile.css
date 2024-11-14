@@ -555,12 +555,6 @@ body {
     }
 }
 
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
-
-/* Mobile-specific adjustments */
-@media (max-width: 768px) {
-
 /* Mobile-specific styles for the button */
 @media only screen and (max-width: 768px) {
     /* Ensure persona cards are centered */
