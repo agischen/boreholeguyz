@@ -22,6 +22,7 @@
     left: 0; /* Aligns it to the left edge */
     width: 100%; /* Ensures the navbar spans the full width of the page */
     z-index: 1000; /* Ensures it stays above other content */
+    
 }
 
 .navbar ul {
@@ -50,39 +51,136 @@
 
 /* Style for the dropdown */
 .dropdown {
-	position: relative;
+    position: relative;
     display: inline-block;
-        }
+}
 
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #005f99;;
+    background-color: #005f99;
     min-width: 250px;
     z-index: 1;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        }
+}
 
 .dropdown:hover .dropdown-content {
     display: block;
-        }
+}
 
 .dropdown-content a {
-	color: black;
+    color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-        }
+}
 
 .dropdown-content a:hover {
     background-color: #ddd;
-        }
+}
+
+.section {
+    margin: 10px 0; /* Reduce the vertical margin between sections */
+    padding: 10px 0; /* Optional: Reduce padding inside sections */
+}
 
 /* Call-to-Action Button */
+.button-container {
+    width: 100%; /* Ensure button fits the screen */
+    display: flex;
+    justify-content: center; /* Center the button */
+    margin-top: 20px; /* Add spacing above the button */
+    margin: 10px 0; /* Reduce margin for button container */
+}
+
+.button {
+    background-color: var(--primary-color); /* Primary color for buttons */
+    color: white;
+    padding: 15px 30px; /* Increased padding for larger touch targets */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.button:hover {
+    background-color: #128C7E; /* Darker shade on hover */
+    transform: translateY(-2px); /* Subtle lift effect */
+}
+
+/* Footer Styling */
+footer {
+    display: block; /* Ensure the footer is displayed as a block element */
+    width: 100%; /* Ensure the footer spans the full width */
+    background-color: white; /* Adjust as needed */
+    padding: 20px; /* Add padding for space */
+    text-align: center; /* Center the text inside */
+    position: relative; /* Ensure it's positioned relative */
+    z-index: 1; /* Adjust to ensure it's above lower layers */
+}
+
+/* Optional: Ensure footer text or links are visible */
+footer p {
+    font-size: 1em; /* Adjust font size */
+    color: var(--text-color); /* Set text color */
+}
+
+/* Add margin to push footer into view if necessary */
+body {
+    font-family: 'Raleway', sans-serif; /* Consistent font */
+    line-height: 1.6; /* Increased line height for readability */
+    background-color: #f4fbff; /* Soft background color */
+}
+
+/* Persona pages header formatting */
+.persona-header-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 10px; /* Add space at the bottom */
+    flex-direction: column; /* Stack items vertically */
+    text-align: center; /* Center text */    
+}
+
+.persona-title {
+    padding: 2em;
+    font-size: 3em; /* Increased font size for the title */
+    color: var(--text-color); /* Use the text color variable */
+    margin-right: 10px; /* Add some space to the right of the title */
+    margin-bottom: 0px; /* Add space between the title and the subtitle */
+    line-height: 0; /* Reduce line height if needed */
+}
+
+.persona-price {
+    color: white; /* Set the price color to white */
+    font-size: 2.5em; /* Increased font size for the price */
+    font-weight: bold; /* Make the price bold */
+    background-color: #005f99; /* Background color */
+    padding: 25px 15px; /* Padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: 0; /* Remove top margin if needed */
+    line-height: 0; /* Reduce line height if needed */
+}
+
+/* General Container Styling */
+.container {
+    max-width: 1200px; /* Set a max width for larger screens */
+    width: 100%; /* Allow full width on smaller screens */
+    margin: 0 auto; /* Center container */
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack content vertically */
+    align-items: center;    /* Center align items horizontally */
+    justify-content: center; /* Vertically center content */
+    margin-top: 20px;   /* Reduced top margin to 40px to decrease space from navbar */
+    margin-bottom: 20px; /* Optional: Add bottom margin for spacing between sections */
+}
+
+/* Button Style */
 
 .button-container {
-    margin-top: -250px;  /* Move the button closer to the content above it */
+    margin-top: 5px;  /* Move the button closer to the content above it */
     padding: 10px 20px; /* Adjust the padding to make the button look better */
+    position: relative; /* Create a new stacking context */
+    z-index: 1000; /* Ensure it appears above other elements */
 }
 .button {
     display: inline-block;
@@ -104,88 +202,20 @@
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow */
 }
 
-/* Footer Styling */
-footer {
-    display: block; /* Ensure the footer is displayed as a block element */
-    width: 100%; /* Ensure the footer spans the full width */
-    background-color: white /*var(--background-color);  Adjust as needed */
-    padding: 20px; /* Add padding for space */
-    text-align: center; /* Center the text inside */
-    position: relative; /* Ensure it's positioned relative */
-    z-index: 1; /* Adjust to ensure it's above lower layers */
-}
-
-/* Optional: Ensure footer text or links are visible */
-footer p {
-   /* margin: 0; /* Remove default margin */
-    font-size: 1em; /* Adjust font size */
-    color: var(--text-color); /* Set text color */
-}
-
-/* Add margin to push footer into view if necessary */
-
-body {
-    margin-bottom: 100px; /* Adjust value as needed to create space for the footer */
-}
-
-/* Persona pages header formatting */
-.persona-header-container {
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center items horizontally */
-    align-items: center; /* Center items vertically */
-    margin-bottom: 10px; /* Add space at the bottom */
-    flex-direction: column; /* Stack items vertically */
-    text-align: center; /* Center text */
-}
-
-.persona-title {
-    padding: 2em;
-    font-size: 3em; /* Increased font size for the title */
-    color: var(--text-color); /* Use the text color variable */
-    /*margin: 0;  Remove margin */
-    margin-right: 10px; /* Add some space to the right of the title */
-    margin-bottom: 0px; /* Add space between the title and the subtitle */
-    line-height: 0; /* Reduce line height if needed */
-}
-.persona-price {
-    color: white; /* Set the price color to white */
-    font-size: 2.5em; /* Increased font size for the price */
-    font-weight: bold; /* Make the price bold */
-    background-color: #005f99; /* Background color */
-    padding: 25px 15px; /* Padding for spacing */
-    border-radius: 5px; /* Rounded corners */
-    margin-top: 0; /* Remove top margin if needed */
-    line-height: 0; /* Reduce line height if needed */
-}
-
-/* General Container Styling */
-.container {
-    text-align: center;
-    width: 100%;
-    max-width: 600px;  /* Restrict the max width on larger screens */
-    margin-top: 80px;   /* Add top margin to avoid overlap with fixed navbar */
-    display: flex;
-    flex-direction: column; /* Stack content vertically */
-    align-items: center;    /* Center align items horizontally */
-    justify-content: center; /* Vertically center content */
-    margin-left: auto; /* Center container horizontally */
-    margin-right: auto; /* Center container horizontally */
-}
-
-
 /* Text Styling */
 .text-container {
     text-align: center;  /* Center the text horizontally */
+    margin-bottom: 0;
 }
 
 .text-content {
-    
     flex: 0.8; /* Controls how much space this takes relative to other items */
     max-width: 1500px; /* Optional: smaller width */
     width: 100%; /* Use max-width as the upper limit */
     margin-right: 0px;
-    margin-bottom:10px;
+    margin-bottom: 10px;
 }
+
 .text {
     font-size: 1.5em;
     color: #333;
@@ -200,7 +230,12 @@ body {
     margin-top: 2px; /* Reduce space above "Choose Your Water Solution" */
     font-size: 1.5em;
     color: #333;
-    margin-top: 15px;
+}
+
+h2 {
+    font-size: 2.5em; /* Larger heading size */
+    color: var(--text-color);
+    margin-bottom: 1px; /* Increased spacing below headings */
 }
 
 .container p {
@@ -211,39 +246,18 @@ body {
 
 /* General Image Container */
 .image-container {
-
     width: 100%;
     display: flex;
     justify-content: center; /* Center the image horizontally */
-    margin-top: 0; Adjust this value to decrease the gap */
+    margin-top: -70px; /* Adjust this value to decrease the gap */
+    padding-top: 80px; 
+    
 }
 
 .image {
-    width: 100%; /* Default image size */
-    height: auto;
-    border-radius: 8px;  /* Optional: rounded corners */
-}
-
- /* Persona Container */
-.persona-container {
-    display: flex;
-    flex-direction: column; /* Default to vertical layout for mobile */
-    gap: 2em; /* Space between cards */
-    align-items: center; /* Center align cards */
-    width: 100%; /* Ensure it takes the full width */
-    margin: 0;
-}
-
-/* Persona Container Styling */
-.persona-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates responsive grid with columns */
-    gap: 2em; /* Space between cards */
-    width: 100%; /* Full width */
-    margin: 0 auto; /* Center the container */
-    padding: 1em; /* Optional: add padding */
-    align-items: center;  /* Horizontally center the content */
-    justify-content: center;  /* Vertically center the content */
+    max-width: 100%; /* Responsive image */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 10px; /* Rounded corners */
 }
 
 /* Persona Card Styling */
@@ -290,8 +304,8 @@ body {
     padding: 0 10px; /* Prevent text from going out of bounds */
 }
 
-/* Process steps formatting */
 
+/* Process steps formatting */
 .process-steps {
     display: flex; /* Change grid to flex for more precise centering */
     flex-wrap: wrap; /* Allow wrapping for responsiveness */
@@ -314,42 +328,42 @@ body {
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
-    width: 250px; /* Fixed width */
+    width: 350px; /* Fixed width */
     min-height: 350px; /* Set minimum height for consistency */
     overflow: hidden; /* Prevent overflow */
 
 }
 
-/* Ensure heading and text are aligned correctly with consistent spacing */
+.process-step:hover {
+    transform: translateY(-5px); /* Lift effect on hover */
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2); /* Darker shadow on hover */
+}
+
+.process-icon {
+    font-size: 2em; /* Icon size */
+    color: var(--secondary-color); /* Icon color */
+}
+
+.process-icon img {
+    width: 60px; /* Set a fixed width for icons */
+    height: 60px; /* Set a fixed height for icons */
+    object-fit: contain; /* Maintain aspect ratio */
+}
+
 .process-step h3 {
     margin: 0; /* Remove default margin */
-    padding-bottom: 10px; /* Add a small space between heading and text */
+    padding-bottom: 10px; /* Space between heading and text */
+    font-size: 1.5em; /* Heading size */
 }
 
 .process-step p {
     margin: 0; /* Remove default margin */
-    padding-top: 5px; /* Add consistent space above the paragraph */
-    line-height: 1.5; /* Optional: for improved readability */
-}
-
-.process-step:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 20px var(--shadow-hover-color);
-    background-color: #003b55  /*#e0e0e0; Slightly darker shade on hover */
-    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.3); /* Darker shadow on hover */
+    padding-top: 5px; /* Space above the paragraph */
+    line-height: 1.5; /* Improve readability */
 }
 
 
-.process-icon {
-    font-size: 2em;
-    color: var(--secondary-color);
-}
 
-.process-icon img {
-    width: 2em;
-    height: 2em;
-    object-fit: contain;
-}
 
 /* Google Maps Section */
 #map {
@@ -415,7 +429,6 @@ body {
 }
 
 /* Section3 */
-
 .form-container {
     display: flex; /* Use flexbox */
     flex-direction: column; /* Stack elements vertically */
@@ -428,7 +441,7 @@ body {
     width: 100%; /* Ensure the form takes up the full width */
     max-width: 1200px; /* Set a max width for better control */
     border-radius: 8px;
-    background-color: var(--background-color); /* Soft background to highlight the section */
+    background-color: var(-- background-color); /* Soft background to highlight the section */
 }
 
 .contact-form {
@@ -451,7 +464,7 @@ body {
     font-size: 1.1em; /* Increase font size for better readability */
     border: 1px solid #ccc; /* Soft border for input fields */
     border-radius: 8px; /* Larger rounded corners for a softer, modern look */
-    background-color: #f0f8ff;/* Light background for input fields */
+    background-color: #f0f8ff; /* Light background for input fields */
     font-family: Arial, sans-serif; /* Clean, easy-to-read font */
     transition: all 0.3s ease; /* Smooth transition for focus and hover effects */
     box-sizing: border-box; /* Include padding and border in width */
@@ -503,94 +516,144 @@ body {
     margin-right: 10px; /* Space between icon and text */
 }
 
-/* Responsive Layout for smaller screens */
-@media (max-width: 768px) {
-    .contact-container {
-        flex-direction: column; /* Stack items vertically on smaller screens */
-        align-items: center; /* Center align the items */
-    }
-
-    .whatsapp-container, .form-container {
-        max-width: 100%; /* Full width on small screens */
-        padding: 10px;
-    }
-
-    .contact-form label {
-        margin-top: 8px; /* Slightly reduce margin on small screens */
-    }
-
-    #whatsapp-button {
-        width: 100%; /* Make the WhatsApp button full-width */
-        justify-content: center; /* Center the content of the button */
-    }
-}
-
 
 /* Adapt to media size */
 @media (min-width: 1024px) {
     .image {
         width: 120%;  /* Reduce the image to 50% of the screen width */
         margin: 0 auto; /* Center the image horizontally */
-        display: block; /* Ensure the image is treated as a block element */
-    }
-
+        display: block; /* Ensure the image is treated as a block element }
+    
     .text {
         font-size: 1.5em; /* Maintain the font size on desktop */
         margin-top: 20px; /* Adjust top margin if needed */
     }
+    
     .button {
         display: inline-block; /* Ensure the button is displayed */
         margin-top: 1.5em; /* Adjust margin if needed */
     }
 
-    .persona-container {
-        grid-template-columns: repeat(3, 1fr); /* Display 3 cards in a row */
-        gap: 3em; /* Space between cards */
-        aspect-ratio: 1 / 1; /* Enforce square shape */
-    }
+
+.persona-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates responsive grid with columns */
+    gap: 3em;
+    width: 100%; /* Full width */
+    margin: 0 auto; /* Center the container */
+    padding: 1em; /* Optional: add padding */
+    align-items: center;  /* Horizontally center the content */
+    margin-top: 0;
+    margin-bottom: 0;    
+    justify-content: space-between; /* Space items evenly */
+    flex-wrap: wrap; /* Allow wrapping to the next line if needed */
+    
+}
 
     .persona-card {
         aspect-ratio: 1 / 1; /* Maintain square shape */
         width: 100%; /* Fill the column */
+        margin: 0;
     }
 }
 
-/* Mobile-specific styles for the button */
-@media only screen and (max-width: 768px) {
-    /* Ensure persona cards are centered */
-    .persona-cards-container {
-        display: flex; /* Use flexbox for centering */
-        flex-direction: column; /* Stack persona cards vertically */
-        align-items: center; /* Center the persona cards horizontally */
-        justify-content: flex-start; /* Align items at the top */
-        width: 100%; /* Full width */
-        padding-top: 20px; /* Add some space at the top */
-        overflow: visible; /* Ensure no scroll */
+/* Mobile-specific adjustments */
+@media (max-width: 768px) {
+
+
+    h1 {
+        font -size: 1em; /* Adjust heading size for smaller screens */
     }
+
+    h2 {
+        font -size: 2em; /* Adjust heading size for smaller screens */
+    }
+    
+    .persona-title {
+        font-size: 6vw; /* Adjust size for smaller screens */
+    }
+    .persona-price {
+        font-size: 5vw; /* Adjust size for smaller screens */
+    }
+    
+    .button {
+        width: 100%; /* Full-width buttons on mobile */
+    }
+        
+    .persona-container {
+        display: flex;
+        flex-direction: column; /* Stack cards vertically */
+        gap: 15px; /* Space between cards */
+        width: 100%; /* Ensure full width */
+    }
+
 
     .persona-card {
-        width: 90%; /* Make persona cards take up 90% of the screen width */
-        max-width: 350px; /* Limit the maximum width of persona cards */
-        margin-bottom: 20px; /* Space between cards */
-        text-align: center; /* Center the text inside the persona cards */
+        width: 100%; /* Full width of the container */
+        flex: 1; /* Allow equal spacing */
+        margin-bottom: 20px; /* Spacing between persona cards */
     }
 
-    /* Ensure the container and card elements do not overlap the button */
-    .container {
-        padding-bottom: 120px; /* Ensure space for the fixed button at the bottom */
+    .persona-card:last-child {
+        margin-bottom: 50px; /* Add space at the bottom to avoid button overlap */
     }
 
-    /* Adjust the 'Get in Touch' button to stay at the bottom */
+    .persona-header-container {
+        margin-bottom: 5px; /* Reduce space at the bottom on mobile */
+        padding: 10px; /* Add some padding for touch targets */
+        /* You can adjust flex properties here if needed */
+    }
+
     .button-container {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
+        width: 100%; /* Ensure button fits the screen */
+        display: flex;
+        justify-content: center; /* Center the button */
+        margin-top: 20px; /* Add spacing above the button */
     }
+
+    .button {
+        display: inline-block; /* Ensure the button is displayed */
+        margin-top: 1.5em; /* Adjust margin if needed */
+    }
+
 
     .text {
         font-size: 1.2em;
         margin-top: 10px;
-}
+    }
+    
+    .process-step {
+        width: 90%; /* Adjust width for smaller screens */
+        height: auto; /* Let height adapt to content on mobile */
+    }
+    
 
+    .text-content {
+        margin: 5px 0; /* Reduce margin for text sections */
+    }
+
+
+    .location-container {
+        flex-direction: column; /* Stack input and button vertically */
+        margin: 10px; /* Adjust margin for mobile */
+    }
+
+    .location-input {
+        margin-bottom: 10px; /* Space below the input */
+    }
+
+    .whatsapp-button {
+        padding: 8px 12px; /* Reduce padding for mobile */
+        font-size: 0.9rem; /* Make text slightly smaller */
+        border-radius: 4px; /* Optional: Adjust border radius */
+    }
+
+    .whatsapp-button img {
+        width: 18px; /* Adjust icon size */
+    }
+
+    .map-container {
+        margin: 10px 0; /* Reduce margins for map */
+    }
+    
+}
