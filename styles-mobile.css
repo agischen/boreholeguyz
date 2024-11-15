@@ -561,6 +561,8 @@ h2 {
 @media (max-width: 768px) {
 
 
+
+
     h1 {
         font -size: 1em; /* Adjust heading size for smaller screens */
     }
@@ -579,6 +581,15 @@ h2 {
     .button {
         width: 100%; /* Full-width buttons on mobile */
     }
+    
+    .image-container {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    margin-top: 0; /* Adjust this value to decrease the gap */
+    padding-top: 80px; 
+    
+}
         
     .persona-container {
         display: flex;
