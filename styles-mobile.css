@@ -255,7 +255,7 @@ h2 {
 }
 
 .image {
-    max-width: 80%; /* Responsive image */
+    max-width: 100%; /* Responsive image */
     height: auto; /* Maintain aspect ratio */
     border-radius: 10px; /* Rounded corners */
 }
