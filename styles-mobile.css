@@ -563,10 +563,6 @@ h2 {
         flex-direction: column; /* Stack items vertically on small screens */
     }
 
-    .navbar ul {
-        flex-direction: column; /* Ensure list items stack */
-    }
-
     .navbar li {
         margin: 10px 0; /* Adjust spacing for vertical layout */
     }
