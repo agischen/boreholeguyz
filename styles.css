@@ -254,6 +254,14 @@ h2 {
     
 }
 
+.image-container-contact {
+    width: 100%;
+    display: flex;
+    justify-content: center; /* Center the image horizontally */
+    margin-top: 20px; /* Adjust this value to decrease the gap */
+    padding-top: 80px; 
+    
+}
 .image {
     max-width: 100%; /* Responsive image */
     height: auto; /* Maintain aspect ratio */
