@@ -17,12 +17,11 @@
     background-color: var(--primary-color);
     padding: 1em;
     text-align: center;
-    position: fixed; /* Keeps the navbar fixed at the top */
-    top: 0; /* Positions it at the very top of the page */
+    position: relative; /* Changed from fixed to relative */
+    top: 0; /* This can be removed or adjusted based on your layout */
     left: 0; /* Aligns it to the left edge */
     width: 100%; /* Ensures the navbar spans the full width of the page */
     z-index: 1000; /* Ensures it stays above other content */
-    
 }
 
 .navbar ul {
@@ -30,8 +29,8 @@
     margin: 0;
     padding: 0;
     display: flex;
-    justify-content: center;
-    gap: 1.5em;
+    justify-content: space-around; /*  Choose one of the above options */
+    gap: 1.5em; 
 }
 
 .navbar ul li a {
@@ -80,8 +79,8 @@
 }
 
 .section {
-    margin: 10px 0; /* Reduce the vertical margin between sections */
-    padding: 10px 0; /* Optional: Reduce padding inside sections */
+
+    padding-bottom: 0;
 }
 
 /* Call-to-Action Button */
