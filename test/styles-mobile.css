@@ -106,6 +106,25 @@
     transform: translateY(-2px); /* Subtle lift effect */
 }
 
+
+.explore-button {
+    display: inline-block;
+    margin-top:-8px;
+    padding: 10px 20px;
+    background-color: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.explore-button:hover {
+    background-color: #128C7E;
+    transform: translateY(-2px);
+}
+
 /* Footer Styling */
 footer {
     display: block; /* Ensure the footer is displayed as a block element */
@@ -150,10 +169,10 @@ body {
 }
 
 .persona-price-index {
-    color: white; /* Set the price color to white */
-    font-size: 1.5em; /* Increased font size for the price */
+    color: black; /* Set the price color to white */
+    font-size: 2em; /* Increased font size for the price */
     font-weight: bold; /* Make the price bold */
-    background-color: #005f99; /* Background color */
+     /*background-color: #005f99; Background color */
     padding: 25px 15px; /* Padding for spacing */
     border-radius: 5px; /* Rounded corners */
     margin-top: 0; /* Remove top margin if needed */
@@ -170,6 +189,8 @@ body {
     margin-top: 0; /* Remove top margin if needed */
     line-height: 0; /* Reduce line height if needed */
 }
+
+
 
 /* General Container Styling */
 .container {
@@ -302,7 +323,8 @@ h2 {
 }
 
 .persona-icon {
-    margin-bottom: 15px; /* Space between image and text */
+    margin-bottom: 10px; /* Space between image and text */
+    margin-top: 80px; /* Space between image and text */
 }
 
 .persona-icon img {
