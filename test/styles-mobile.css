@@ -169,13 +169,13 @@ body {
 }
 
 .persona-price-index {
-    color: black; /* Set the price color to white */
+    color: #005f99; /* Set the price color to white */
     font-size: 2em; /* Increased font size for the price */
     font-weight: bold; /* Make the price bold */
      /*background-color: #005f99; Background color */
     padding: 25px 15px; /* Padding for spacing */
     border-radius: 5px; /* Rounded corners */
-    margin-top: 0; /* Remove top margin if needed */
+    margin-top: -15px; /* Remove top margin if needed */
     line-height: 0; /* Reduce line height if needed */
 }
 
@@ -337,6 +337,7 @@ h2 {
     font-family: 'Raleway', sans-serif;
     font-size: 1.5em;
     color: var(--text-color);
+    margin-bottom: 10px;
 }
 
 .persona-desc {
