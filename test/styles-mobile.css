@@ -279,7 +279,7 @@ h2 {
 
 /* General Image Container */
 .image-container {
-    width:80%;
+    width:50%;
     display: flex;
     justify-content: center; /* Center the image horizontally */
     margin-top: -70px; /* Adjust this value to decrease the gap */
