@@ -702,8 +702,6 @@ h2 {
 }
 
 
-
-
     h1 {
         font -size: 1em; /* Adjust heading size for smaller screens */
     }
@@ -782,6 +780,12 @@ h2 {
         margin: 5px 0; /* Reduce margin for text sections */
     }
 
+    .controls {
+        width: 80%; /* Reduce width to 80% */
+        margin: 0 auto; /* Center align if needed */
+        font-size: 14px; /* Optionally reduce font size */
+        padding: 8px; /* Adjust padding for better fit */
+    }
 
 .whatsapp-container {
     display: flex;
