@@ -149,6 +149,20 @@ footer p {
     color: var(--text-color); /* Set text color */
 }
 
+.version-control {
+    position: fixed; /* Fixes the element's position relative to the viewport */
+    bottom: 15px; /* Distance from the bottom edge of the viewport */
+    right: 10px; /* Distance from the right edge of the viewport */
+    font-size: 0.7em; /* Small font size */
+    color: #555; /* Subtle grey colour for text */
+    background-color: rgba(0, 0, 0, 0.1); /* Optional: Semi-transparent background */
+    padding: 5px 8px; /* Small padding for readability */
+    border-radius: 3px; /* Rounded corners for a neat look */
+   
+    font-family: Arial, sans-serif; /* Simple, clean font */
+}
+
+
 /* Add margin to push footer into view if necessary */
 body {
     font-family: 'Raleway', sans-serif; /* Consistent font */
@@ -261,25 +275,20 @@ body {
 
 /* Text Styling */
 
-
-
-
 .text-container {
     text-align: center;  /* Center the text horizontally */
     margin-bottom: 0;
 }
 
-.text-content {
-    flex: 0.8; /* Controls how much space this takes relative to other items */
-    max-width: 1500px; /* Optional: smaller width */
-    width: 100%; /* Use max-width as the upper limit */
-    margin-right: 0px;
-    margin-bottom: 10px;
+
+.text-content h2 {
+    text-align: center;
+    font-size: 1.5em; 
 }
 
-
-.text-content h2, .text-content p {
+.text-content p {
     text-align: center;
+    font-size: 1.2em; 
 }
 
 .text {
@@ -314,7 +323,7 @@ h2 {
 
 /* General Image Container */
 .image-container {
-    width:80%;
+    width:70%;
     display: flex;
     justify-content: center; /* Center the image horizontally */
     margin-top: 10px; /* Adjust this value to decrease the gap */
@@ -580,7 +589,7 @@ h2 {
   /*height: 100vh;  Take up full viewport height */
   margin: 0;
   margin: auto;
-  width: 50%;
+  width: 70%;
 
 }
 
@@ -619,7 +628,8 @@ h2 {
     .image {
         width: 70%;  /* Reduce the image to 50% of the screen width */
         margin: 0 auto; /* Center the image horizontally */
-        display: block; /* Ensure the image is treated as a block element }
+        display: block; /* Ensure the image is treated as a block element */
+        }
     
     .text {
         font-size: 1.5em; /* Maintain the font size on desktop */
