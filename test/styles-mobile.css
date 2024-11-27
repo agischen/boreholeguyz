@@ -581,6 +581,19 @@ h2 {
     transform: translateY(-2px); /* Slight movement effect */
 }
 
+
+.whatsapp-container-finder {
+
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center vertically */
+  /*height: 100vh;  Take up full viewport height */
+  margin: 0;
+  margin: auto;
+  width: 100%;
+
+}
+
 .whatsapp-container {
 
   display: flex;
@@ -589,15 +602,18 @@ h2 {
   /*height: 100vh;  Take up full viewport height */
   margin: 0;
   margin: auto;
-  width: 80%;
+  width: 70%;
+
 }
+
+
 
 
 #whatsapp-button {
 
     display: flex;
     justify-content: center;
-    width:40%;
+	width:40%;
     text-align: center;
     margin: 0 auto; 
     align-items: center; /* Center the image and text vertically */
