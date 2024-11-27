@@ -175,15 +175,10 @@ body {
     line-height: 0; /* Reduce line height if needed */
 }
 
-.persona-price-index {
-    color: #005f99; /* Set the price color to white */
-    font-size: 2em; /* Increased font size for the price */
-    font-weight: bold; /* Make the price bold */
-     /*background-color: #005f99; Background color */
-    padding: 25px 15px; /* Padding for spacing */
-    border-radius: 5px; /* Rounded corners */
-    margin-top: -15px; /* Remove top margin if needed */
-    line-height: 0; /* Reduce line height if needed */
+.persona-price-container {
+    display: inline-flex; /* Align price and VAT horizontally */
+    align-items: center; /* Vertically center-align text */
+    gap: 0.1px; /* Space between price and VAT */
 }
 
 .persona-price {
@@ -197,6 +192,34 @@ body {
     line-height: 0; /* Reduce line height if needed */
 }
 
+.persona-price-VAT {
+    font-size: 1em; /* Smaller font for VAT */
+    font-weight: bold; /* Make VAT bold */
+    color: #005f99; /* Same text colour as the price */
+   /* background-color: inherit;  Matches the price's background colour */
+    padding: 5px 10px; /* Smaller padding for VAT */
+    border-radius: 5px; /* Match the rounded corners */
+    white-space: nowrap; /* Prevent wrapping of text */
+    margin-top:35px;
+}
+
+.persona-price-index {
+    color: #005f99; 
+    font-size: 2em; /* Increased font size for the price */
+    font-weight: bold; /* Make the price bold */
+     /*background-color: #005f99; Background color */
+    padding: 25px 15px; /* Padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+    margin-top: -15px; /* Remove top margin if needed */
+    line-height: 0; /* Reduce line height if needed */
+}
+
+.persona-price-index-VAT {
+    font-size: 1em; /* Smaller font for VAT */
+    font-weight: bold; /* Make VAT bold */
+    color:  #005f99; ; /* Same text colour as the price */
+
+}
 
 
 /* General Container Styling */
@@ -717,6 +740,10 @@ h2 {
     }
     .persona-price {
         font-size: 5vw; /* Adjust size for smaller screens */
+    }
+    
+        .persona-price-VAT {
+        font-size: 2vw; /* Adjust size for smaller screens */
     }
     
     .button {
