@@ -419,9 +419,6 @@ h2 {
 }
 
 
-
-
-/* Google Maps Section */
 /* Google Maps Section */
 #map {
     width: 80%;
@@ -680,9 +677,11 @@ h2 {
     text-align: center; /* Centre-align the text inside each link */
     display: block; /* Make the links behave like block elements */
     width: 100%; /* Ensure full width for centering */
-    padding: 10px 0; /* Top and bottom padding only */
+    /*padding: 10px 0; Top and bottom padding only */
     margin: 0; /* Reset any margins */
-    display: block; /* Show the dropdown */
+    box-sizing: border-box;
+    padding: 12px; /* Larger touch targets for mobile */
+    font-size: 16px; /* Improved readability on small screens */
 
 }
 
@@ -695,10 +694,13 @@ h2 {
     position: absolute; /* Ensure proper positioning */
     left: 50%; /* Align horizontally */
     transform: translateX(-50%);
+    width: 100%; /* Ensures the dropdown fits the container */
+    box-sizing: border-box; /* Includes padding/borders in the total width */
 }
 
 .dropdown:hover  {
     display: block; /* Show the dropdown */
+    background-color: var(--secondary-color); /* Highlight on hover */
 }
 
 
