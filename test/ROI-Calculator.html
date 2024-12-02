@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Borehole ROI Calculator</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+.container {
+  width: 500px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+}
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+#result {
+  margin-top: 20px;
+  font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Borehole ROI Calculator</h1>
+  <label for="waterBill">Current Monthly Water Bill (R):</label>
+  <input type="number" id="waterBill" value="0">
+
+  <label for="boreholeCost">Borehole Installation Cost (R):</label>
+  <input type="number" id="boreholeCost" value="0">
+
+  <button onclick="calculateROI()">Calculate ROI</button>
+
+  <div id="result"></div>
+</div>
+
+<script>
+function calculateROI() {
+  const waterBill = parseFloat(document.getElementById("waterBill").value);
+  const boreholeCost = parseFloat(document.getElementById("boreholeCost").value);
+  const resultDiv = document.getElementById("result");
+
+  if (isNaN(waterBill) || waterBill <= 0 || isNaN(boreholeCost) || boreholeCost <=0) {
+    resultDiv.textContent = "Please enter valid positive numbers for both fields.";
+    return;
+  }
+
+
+  const paybackPeriodMonths = boreholeCost / waterBill;
+  const paybackPeriodYears = paybackPeriodMonths / 12;
+
+  resultDiv.textContent = `Estimated Payback Period: Approximately ${paybackPeriodMonths.toFixed(1)} months (${paybackPeriodYears.toFixed(1)} years)`;
+}
+</script>
+
+</body>
+</html>
