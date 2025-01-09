@@ -271,24 +271,30 @@
       const { jsPDF } = window.jspdf;
       const pdf = new jsPDF();
 
-      // Add Invoice Content to the PDF
+      // Title and customer info
       pdf.text("Boreholeguyz Invoice", 10, 10);
       pdf.text(`Quote #: ${document.getElementById("quoteNumber").value}`, 10, 20);
       pdf.text(`Date: ${document.getElementById("invoiceDate").value}`, 10, 30);
-      pdf.text(`Customer Name: ${document.getElementById("customerName").value}`, 10, 40);
-      pdf.text(`Customer Address: ${document.getElementById("customerAddress").value}`, 10, 50);
-      pdf.text(`Grand Total: ${document.getElementById("grandTotal").textContent}`, 10, 60);
 
-      // Generate the Blob URL for the PDF
-      const blob = pdf.output('blob');
-      const pdfFileURL = URL.createObjectURL(blob);
+      // Add table with items
+      const rows = document.querySelectorAll('#itemsTable tbody tr');
+      let rowIndex = 40;
+      rows.forEach(row => {
+        const qty = row.querySelector('.qty').value;
+        const description = row.querySelector('.description').value;
+        const unitPrice = row.querySelector('.unitPrice').value;
+        const total = row.querySelector('.itemTotal').textContent;
+        pdf.text(`${qty} | ${description} | ${unitPrice} | ${total}`, 10, rowIndex);
+        rowIndex += 10;
+      });
 
-      // WhatsApp Sharing
-      const message = `Hello! Please find the invoice attached.`;
-      const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}&attachment=${encodeURIComponent(pdfFileURL)}`;
+      // Add totals
+      pdf.text(`Subtotal: ${document.getElementById("subTotal").textContent}`, 10, rowIndex);
+      pdf.text(`VAT: ${document.getElementById("vatTotal").textContent}`, 10, rowIndex + 10);
+      pdf.text(`Grand Total: ${document.getElementById("grandTotal").textContent}`, 10, rowIndex + 20);
 
-      // Open WhatsApp Link
-      window.open(whatsappURL, '_blank');
+      // Save PDF
+      pdf.save('invoice.pdf');
     }
   </script>
 </body>
