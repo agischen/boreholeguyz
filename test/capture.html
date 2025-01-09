@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boreholeguyz Invoice Generator - Data Capture</title>
+  <style>
+    /* ... (Same CSS as before, but you might want to adjust styling for a cleaner capture form) ... */
+    #invoiceForm {
+        max-width: 600px; /* added a max width to the form */
+        margin: 0 auto; /* Center the form */
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold; /* Make labels bolder */
+    }
+    input, select, textarea {
+      width: calc(100% - 22px); /* Adjust width to account for padding */
+      padding: 8px 11px; /* Added padding to the input fields */
+      margin-bottom: 10px;
+      box-sizing: border-box;
+      font-size: 14px;
+      border: 1px solid #ccc;
+      border-radius: 5px; /*Rounded corners for inputs*/
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      border-radius: 5px; /*Rounded button corners*/
+      background-color: #4CAF50; /* Green background */
+      border: none;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="images/Boreholeguys.png" alt="Boreholeguyz Logo" class="logo">
+      <h1>Boreholeguyz Invoice Generator</h1>
+    </div>
+
+    <form id="invoiceForm">
+      <!-- ... (Same form fields as before) ... -->
+      <button type="button" onclick="generateInvoice()">Generate Invoice</button>
+    </form>
+
+    <script>
+      function generateInvoice() {
+        const formData = new FormData(document.getElementById('invoiceForm'));
+        const urlParams = new URLSearchParams(formData).toString();
+        window.location.href = `invoice.html?${urlParams}`;
+      }
+    </script>
+  </div>
+</body>
+</html>
