@@ -3,16 +3,16 @@
 <head>
   <title>Boreholeguyz Invoice Generator - Data Capture</title>
   <style>
-    /* ... (CSS from the original code, plus any additions for better form styling) ... */
-    </style>
+    /* ...Your CSS here... */
+  </style>
 </head>
 <body>
   <div class="container">
-    <div class="header">  
+    <div class="header">
       <img src="images/Boreholeguys.png" alt="Boreholeguyz Logo" class="logo" style="height: 80px;">
       <h1>Boreholeguyz Invoice Generator</h1>
     </div>
-    
+
     <form id="invoiceForm">
       <div class="customer-info">
         <label for="quoteNumber">Quote #:</label>
@@ -60,7 +60,35 @@
     </form>
 
     <script>
-      // ... (addItem and calculateTotals functions from the original code) ...
+      function addItem() {
+        const tbody = document.getElementById("itemsTable").querySelector("tbody");
+        const row = tbody.insertRow();
+        row.innerHTML = `
+          <td><input type="number" min="1" value="1" class="qty" oninput="calculateTotals()"></td>
+          <td><input type="text" class="description"></td>
+          <td><input type="number" step="0.01" class="unitPrice" oninput="calculateTotals()"></td>
+          <td><span class="itemTotal">0.00</span></td>
+        `;
+      }
+
+      function calculateTotals() {
+        let subTotal = 0;
+        const rows = document.querySelectorAll('#itemsTable tbody tr');
+        rows.forEach(row => {
+          const qty = parseFloat(row.querySelector('.qty').value) || 0;
+          const unitPrice = parseFloat(row.querySelector('.unitPrice').value) || 0;
+          const total = qty * unitPrice;
+          row.querySelector('.itemTotal').textContent = total.toFixed(2);
+          subTotal += total;
+        });
+
+        const vat = subTotal * 0.15;
+        const grandTotal = subTotal + vat;
+
+        document.getElementById('subTotal').textContent = subTotal.toFixed(2);
+        document.getElementById('vatTotal').textContent = vat.toFixed(2);
+        document.getElementById('grandTotal').textContent = grandTotal.toFixed(2);
+      }
 
       function generateInvoice() {
         const formData = new FormData(document.getElementById('invoiceForm'));
@@ -72,7 +100,7 @@
           const unitPrice = parseFloat(row.querySelector('.unitPrice').value) || 0;
           itemsData.push({ quantity, description, unitPrice });
         });
-        formData.append('items', JSON.stringify(itemsData)); //Added items to formData
+        formData.append('items', JSON.stringify(itemsData));
 
         const urlParams = new URLSearchParams(formData);
         window.location.href = `invoice.html?${urlParams.toString()}`;
