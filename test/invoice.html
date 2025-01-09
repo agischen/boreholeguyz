@@ -3,7 +3,7 @@
 <head>
   <title>Boreholeguyz Invoice</title>
   <style>
-    /* ...Your CSS here... */
+    /* ... (Your CSS here) ... */
   </style>
 </head>
 <body>
@@ -18,30 +18,30 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
-      //Improved parameter retrieval
       const urlParams = new URLSearchParams(window.location.search);
-      const quoteNumber = urlParams.get('quoteNumber');
-      const invoiceDate = urlParams.get('invoiceDate');
-      const customerName = urlParams.get('customerName');
-      const customerAddress = urlParams.get('customerAddress');
+      const quoteNumber = urlParams.get('quoteNumber') || "";
+      const invoiceDate = urlParams.get('invoiceDate') || "";
+      const customerName = urlParams.get('customerName') || "";
+      const customerAddress = urlParams.get('customerAddress') || "";
       let items = [];
       try {
-          items = JSON.parse(urlParams.get('items') || '[]'); //Handle cases where 'items' might be missing
+        items = JSON.parse(urlParams.get('items') || '[]');
       } catch (error) {
-          console.error("Error parsing items data:", error);
-          // Handle the error appropriately, perhaps display a message to the user.
+        console.error("Error parsing items data:", error);
+        //Handle error appropriately (e.g., display an error message)
+        alert('Error loading invoice data. Please try again.'); //Example error handling
+        return; //Stop further execution
       }
-
 
       function createInvoiceContent(data) {
         const invoiceHTML = `
           <div class="customer-info">
-            <p><strong>Quote #:</strong> ${data.quoteNumber || "N/A"}</p>  <!--Handle missing values-->
-            <p><strong>Date:</strong> ${data.invoiceDate || "N/A"}</p>
-            <p><strong>Customer Name:</strong> ${data.customerName || "N/A"}</p>
-            <p><strong>Customer Address:</strong> ${data.customerAddress || "N/A"}</p>
+            <p><strong>Quote #:</strong> ${data.quoteNumber}</p>
+            <p><strong>Date:</strong> ${data.invoiceDate}</p>
+            <p><strong>Customer Name:</strong> ${data.customerName}</p>
+            <p><strong>Customer Address:</strong> ${data.customerAddress}</p>
           </div>
-          <table>
+          <table id="itemsTable">
             <thead>
               <tr>
                 <th>QTY</th>
@@ -51,20 +51,20 @@
               </tr>
             </thead>
             <tbody>
-              ${data.items.map(item => `<tr><td>${item.quantity || 0}</td><td>${item.description || ""}</td><td>${(item.unitPrice || 0).toFixed(2)}</td><td>${(item.quantity * item.unitPrice || 0).toFixed(2)}</td></tr>`).join('')}
+              ${data.items.map(item => `<tr><td>${item.quantity}</td><td>${item.description}</td><td>${(item.unitPrice).toFixed(2)}</td><td>${(item.quantity * item.unitPrice).toFixed(2)}</td></tr>`).join('')}
             </tbody>
             <tfoot>
               <tr>
                 <td colspan="3" class="total">Subtotal:</td>
-                <td class="total" id="subTotal">${data.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice || 0), 0).toFixed(2)}</td>
+                <td class="total" id="subTotal">${data.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0).toFixed(2)}</td>
               </tr>
               <tr>
                 <td colspan="3" class="total">VAT (15%):</td>
-                <td class="total" id="vatTotal">${(data.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice || 0), 0) * 0.15).toFixed(2)}</td>
+                <td class="total" id="vatTotal">${(data.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0) * 0.15).toFixed(2)}</td>
               </tr>
               <tr>
                 <td colspan="3" class="total">Grand Total:</td>
-                <td class="total" id="grandTotal">${(data.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice || 0), 0) * 1.15).toFixed(2)}</td>
+                <td class="total" id="grandTotal">${(data.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0) * 1.15).toFixed(2)}</td>
               </tr>
             </tfoot>
           </table>`;
@@ -73,26 +73,21 @@
 
       createInvoiceContent({ quoteNumber, invoiceDate, customerName, customerAddress, items });
 
-
       function generatePdfAndShare() {
-        // ... (Your generatePdfAndShare function here, extracting data from the dynamically created elements) ...
         const { jsPDF } = window.jspdf;
         const pdf = new jsPDF();
         const customerInfo = document.querySelector('.customer-info');
-        const table = document.querySelector('table');
+        const table = document.querySelector('#itemsTable'); //Use the table ID to select
+
+        pdf.setFontSize(12);
+        pdf.text(customerInfo.innerHTML, 10, 20);
+
+        pdf.autoTable({ html: '#itemsTable' });
+
         const subTotal = parseFloat(document.getElementById('subTotal').textContent);
         const vatTotal = parseFloat(document.getElementById('vatTotal').textContent);
         const grandTotal = parseFloat(document.getElementById('grandTotal').textContent);
 
-        //Add Customer Information
-        pdf.setFontSize(12);
-        pdf.text(customerInfo.innerHTML, 10, 20);
-        
-        //Add Table Data
-        const tableContent = table.innerHTML;
-        pdf.autoTable({ html: '#itemsTable' });
-
-        //Add totals
         pdf.setFontSize(14);
         pdf.setFont(undefined, 'bold');
         pdf.text(`Subtotal: ${subTotal.toFixed(2)}`, 10, pdf.lastAutoTable.finalY + 10);
@@ -100,7 +95,6 @@
         pdf.text(`Grand Total: ${grandTotal.toFixed(2)}`, 10, pdf.lastAutoTable.finalY + 30);
 
         pdf.save('invoice.pdf');
-
       }
     </script>
   </div>
