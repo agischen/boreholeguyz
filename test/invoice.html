@@ -80,6 +80,7 @@
     <button type="button" id="generateInvoicePdfButton" onclick="generatePdfAndShare()">Generate PDF & Download</button>
   </div>
 
+  <!-- Load jsPDF library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
   <script>
     // Get data from URL parameters
@@ -155,18 +156,33 @@
 
     // Function to generate PDF and download
     async function generatePdfAndShare() {
-      const { jsPDF } = window.jspdf;
-      const pdf = new jsPDF();
+      // Check if jsPDF is loaded
+      if (!window.jspdf || !window.jspdf.jsPDF) {
+        console.error("jsPDF library is not loaded.");
+        alert("Failed to load PDF generator. Please try again.");
+        return;
+      }
+
+      const { jsPDF } = window.jspdf; // Extract jsPDF from the loaded library
+      const pdf = new jsPDF({ unit: "px", format: "a4" }); // Initialize jsPDF with A4 size
+
+      // Select the container element to render
+      const container = document.getElementById('invoiceContainer');
       
-      // Use the `html` method to render content
-      pdf.html(document.getElementById('invoiceContainer'), {
+      // Add HTML content to the PDF
+      pdf.html(container, {
         callback: function (pdfInstance) {
-          pdfInstance.save('invoice.pdf'); // Save the PDF
+          // Save the generated PDF
+          pdfInstance.save('invoice.pdf');
         },
-        x: 10,
-        y: 10,
-        margin: [10, 10, 10, 10],
-        autoPaging: true,
+        x: 10, // Horizontal offset
+        y: 10, // Vertical offset
+        margin: [10, 10, 10, 10], // Margins around the content
+        autoPaging: true, // Automatically add new pages for overflow content
+        html2canvas: {
+          scale: 2, // Improves rendering quality
+          useCORS: true, // Handles cross-origin issues for images
+        },
       });
     }
   </script>
