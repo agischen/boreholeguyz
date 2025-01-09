@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Boreholeguyz Invoice Generator</title>
+<style>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.logo {
+  max-width: 120px;
+  margin: 0 auto;
+  display: block;
+}
+
+.customer-info {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.total {
+  font-weight: bold;
+  text-align: right;
+}
+
+.banking-details {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+#invoiceForm {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .container {
+    padding: 5px;
+  }
+  table {
+    font-size: 12px;
+  }
+  th, td {
+    padding: 6px;
+  }
+}
+
+/* Print styles */
+@media print {
+  body {
+    font-size: 9pt;
+  }
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .logo {
+    max-width: 100px;
+  }
+  #generateInvoiceButton, #printButton {
+    display: none;
+  }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header">
+    <img src="images/Boreholeguys.png" alt="Boreholeguyz Logo" class="logo">
+    <p>Boreholeguyz</p>
+    <p>1240 Kamfer Cresent, Roodekrans, 1724</p>
+    <p>TEL NO: 06155555 | EMAIL: info@borehoeguyz.co.za</p>
+  </div>
+
+  <form id="invoiceForm">
+    <div class="customer-info">
+      <label for="quoteNumber">Quote #:</label>
+      <input type="text" id="quoteNumber" required>
+
+      <label for="invoiceDate">Date:</label>
+      <input type="date" id="invoiceDate" required>
+
+      <label for="customerName">Customer Name:</label>
+      <input type="text" id="customerName" required>
+
+      <label for="customerAddress">Customer Address:</label>
+      <textarea id="customerAddress" rows="3" required></textarea>
+    </div>
+
+    <button type="button" id="generateInvoiceButton" onclick="generatePdfAndShare()">Generate PDF & Send via WhatsApp</button>
+    <button type="button" id="printButton" onclick="window.print()">Print to PDF</button>
+  </form>
+
+  <div id="invoice"></div>
+  <div class="banking-details">
+    <p><strong>BANKING DETAILS:</strong></p>
+    <p><strong>BANK:</strong> FNB</p>
+    <p><strong>BRANCH:</strong> Eastgate, 555555</p>
+    <p><strong>ACC NO:</strong> 65252525252</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script>
+function generatePdfAndShare() {
+  const { jsPDF } = window.jspdf;
+  const pdf = new jsPDF();
+
+  // Add Invoice Content to the PDF
+  pdf.text("Boreholeguyz Invoice", 10, 10);
+  pdf.text(`Quote #: ${document.getElementById("quoteNumber").value}`, 10, 20);
+  pdf.text(`Date: ${document.getElementById("invoiceDate").value}`, 10, 30);
+  pdf.text(`Customer Name: ${document.getElementById("customerName").value}`, 10, 40);
+  pdf.text(`Customer Address: ${document.getElementById("customerAddress").value}`, 10, 50);
+  pdf.text(`Grand Total: ${document.getElementById("grandTotal").textContent}`, 10, 60);
+
+  // Generate the Blob URL for the PDF
+  const blob = pdf.output('blob');
+  const pdfFileURL = URL.createObjectURL(blob);
+
+  // WhatsApp Sharing
+  const message = `Hello! Please find the invoice attached.`;
+  const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}&attachment=${encodeURIComponent(pdfFileURL)}`;
+
+  // Open WhatsApp Link
+  window.open(whatsappURL, '_blank');
+}
+</script>
+</body>
+</html>
