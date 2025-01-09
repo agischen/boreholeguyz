@@ -3,41 +3,8 @@
 <head>
   <title>Boreholeguyz Invoice Generator - Data Capture</title>
   <style>
-    /* ... (Same CSS as before, but you might want to adjust styling for a cleaner capture form) ... */
-    #invoiceForm {
-        max-width: 600px; /* added a max width to the form */
-        margin: 0 auto; /* Center the form */
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-    }
-    label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold; /* Make labels bolder */
-    }
-    input, select, textarea {
-      width: calc(100% - 22px); /* Adjust width to account for padding */
-      padding: 8px 11px; /* Added padding to the input fields */
-      margin-bottom: 10px;
-      box-sizing: border-box;
-      font-size: 14px;
-      border: 1px solid #ccc;
-      border-radius: 5px; /*Rounded corners for inputs*/
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      border-radius: 5px; /*Rounded button corners*/
-      background-color: #4CAF50; /* Green background */
-      border: none;
-      color: white;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #45a049;
-    }
-  </style>
+    /* ... (CSS from the original code, plus any additions for better form styling) ... */
+    </style>
 </head>
 <body>
   <div class="container">
@@ -47,15 +14,68 @@
     </div>
 
     <form id="invoiceForm">
-      <!-- ... (Same form fields as before) ... -->
+      <div class="customer-info">
+        <label for="quoteNumber">Quote #:</label>
+        <input type="text" id="quoteNumber" required>
+
+        <label for="invoiceDate">Date:</label>
+        <input type="date" id="invoiceDate" required>
+
+        <label for="customerName">Customer Name:</label>
+        <input type="text" id="customerName" required>
+
+        <label for="customerAddress">Customer Address:</label>
+        <textarea id="customerAddress" rows="3" required></textarea>
+      </div>
+
+      <button type="button" onclick="addItem()">Add Item</button>
+
+      <table id="itemsTable">
+        <thead>
+          <tr>
+            <th>QTY</th>
+            <th>DESCRIPTION</th>
+            <th>UNIT PRICE</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="total">Subtotal:</td>
+            <td class="total" id="subTotal">0.00</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="total">VAT (15%):</td>
+            <td class="total" id="vatTotal">0.00</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="total">Grand Total:</td>
+            <td class="total" id="grandTotal">0.00</td>
+          </tr>
+        </tfoot>
+      </table>
+
       <button type="button" onclick="generateInvoice()">Generate Invoice</button>
     </form>
 
     <script>
+      // ... (addItem and calculateTotals functions from the original code) ...
+
       function generateInvoice() {
         const formData = new FormData(document.getElementById('invoiceForm'));
-        const urlParams = new URLSearchParams(formData).toString();
-        window.location.href = `invoice.html?${urlParams}`;
+        let itemsData = [];
+        const rows = document.querySelectorAll('#itemsTable tbody tr');
+        rows.forEach(row => {
+          const quantity = parseFloat(row.querySelector('.qty').value) || 0;
+          const description = row.querySelector('.description').value;
+          const unitPrice = parseFloat(row.querySelector('.unitPrice').value) || 0;
+          itemsData.push({ quantity, description, unitPrice });
+        });
+        formData.append('items', JSON.stringify(itemsData)); //Added items to formData
+
+        const urlParams = new URLSearchParams(formData);
+        window.location.href = `invoice.html?${urlParams.toString()}`;
       }
     </script>
   </div>
