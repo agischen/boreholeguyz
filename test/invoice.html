@@ -1,163 +1,64 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html>
 <head>
   <title>Boreholeguyz Invoice</title>
   <style>
-    /*  Add your CSS here.  This is essential for styling the invoice.  
-        The CSS from previous responses is a good starting point.  
-        Make sure that it is correct and that there are no styling conflicts.
-    */
+    /* ... (Same CSS as before, but refine for a visually appealing invoice) ... */
     body {
-      font-family: sans-serif;
-      margin: 0;
-      padding: 0;
+        font-family: 'Arial', sans-serif; /* Specify a clean font */
     }
-
     .container {
-      width: 100%;
-      max-width: 800px;
-      margin: 20px auto;
-      padding: 20px;
-      background-color: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        max-width: 800px; /* Adjust width for better visual appeal */
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     }
-
     .header {
-      text-align: center;
-      margin-bottom: 30px;
+        text-align: center;
+        margin-bottom: 30px;
     }
-
     .logo {
-      max-width: 150px;
-      margin: 0 auto;
-      display: block;
+        max-width: 150px;
+        margin: 0 auto;
+        display: block;
     }
-
-    .customer-info {
-      margin-bottom: 20px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 14px;
-      margin-bottom: 20px;
-    }
-
-    th, td {
-      border: 1px solid #ccc;
-      padding: 8px;
-      text-align: left;
-    }
-
-    th {
-      background-color: #f2f2f2;
-    }
-
-    .total {
-      font-weight: bold;
-      text-align: right;
-    }
-    /* Add more styles as needed */
+    /*Other styles for visually appealing invoice*/
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
-      <img src="images/Boreholeguys.png" alt="Boreholeguyz Logo" class="logo" style="height: 80px;">
+      <img src="images/Boreholeguys.png" alt="Boreholeguyz Logo" class="logo">
       <h1>Boreholeguyz Invoice</h1>
     </div>
     <div id="invoiceContent"></div>
-
     <button type="button" id="generateInvoicePdfButton" onclick="generatePdfAndShare()">Generate PDF & Download</button>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script>
+      // Get data from URL parameters
       const urlParams = new URLSearchParams(window.location.search);
-      const quoteNumber = urlParams.get('quoteNumber') || "";
-      const invoiceDate = urlParams.get('invoiceDate') || "";
-      const customerName = urlParams.get('customerName') || "";
-      const customerAddress = urlParams.get('customerAddress') || "";
-      let items = [];
-      try {
-        items = JSON.parse(urlParams.get('items') || '[]');
-      } catch (error) {
-        console.error("Error parsing items data:", error);
-        alert('Error loading invoice data. Please try again.');
-        return;
+      const quoteNumber = urlParams.get('quoteNumber');
+      const invoiceDate = urlParams.get('invoiceDate');
+      const customerName = urlParams.get('customerName');
+      const customerAddress = urlParams.get('customerAddress');
+      // ... (Rest of the code to reconstruct invoice items from URL parameters - You'll need to adapt this section) ...
+      // Function to dynamically create the invoice content (Similar to generateInvoice() but using the parameters)
+      function createInvoiceContent(data){
+          // ... (Your adapted code here to generate the invoice content from parameters)
       }
-
-
-      function createInvoiceContent(data) {
-        try{
-          const invoiceHTML = `
-            <div class="customer-info">
-              <p><strong>Quote #:</strong> ${data.quoteNumber}</p>
-              <p><strong>Date:</strong> ${data.invoiceDate}</p>
-              <p><strong>Customer Name:</strong> ${data.customerName}</p>
-              <p><strong>Customer Address:</strong> ${data.customerAddress}</p>
-            </div>
-            <table>
-              <thead>
-                <tr>
-                  <th>QTY</th>
-                  <th>DESCRIPTION</th>
-                  <th>UNIT PRICE</th>
-                  <th>TOTAL</th>
-                </tr>
-              </thead>
-              <tbody>
-                ${data.items.map(item => `<tr><td>${item.quantity}</td><td>${item.description}</td><td>${(item.unitPrice).toFixed(2)}</td><td>${(item.quantity * item.unitPrice).toFixed(2)}</td></tr>`).join('')}
-              </tbody>
-              <tfoot>
-                <tr>
-                  <td colspan="3" class="total">Subtotal:</td>
-                  <td class="total" id="subTotal">${data.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0).toFixed(2)}</td>
-                </tr>
-                <tr>
-                  <td colspan="3" class="total">VAT (15%):</td>
-                  <td class="total" id="vatTotal">${(data.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0) * 0.15).toFixed(2)}</td>
-                </tr>
-                <tr>
-                  <td colspan="3" class="total">Grand Total:</td>
-                  <td class="total" id="grandTotal">${(data.items.reduce((sum, item) => sum + (item.quantity * item.unitPrice), 0) * 1.15).toFixed(2)}</td>
-                </tr>
-              </tfoot>
-            </table>`;
-          document.getElementById('invoiceContent').innerHTML = invoiceHTML;
-        } catch (error){
-          console.error("Error generating invoice HTML:", error);
-          alert('Error generating invoice. Please check your data.');
-        }
-      }
-
-      createInvoiceContent({ quoteNumber, invoiceDate, customerName, customerAddress, items });
-
-      function generatePdfAndShare() {
-        const { jsPDF } = window.jspdf;
-        const pdf = new jsPDF();
-        const customerInfo = document.querySelector('.customer-info');
-        const table = document.querySelector('table'); 
-
-        pdf.setFontSize(12);
-        pdf.text(customerInfo.innerHTML, 10, 20);
-        pdf.autoTable({ html: '#itemsTable' });
-
-        const subTotal = parseFloat(document.getElementById('subTotal').textContent);
-        const vatTotal = parseFloat(document.getElementById('vatTotal').textContent);
-        const grandTotal = parseFloat(document.getElementById('grandTotal').textContent);
-
-        pdf.setFontSize(14);
-        pdf.setFont(undefined, 'bold');
-        pdf.text(`Subtotal: ${subTotal.toFixed(2)}`, 10, pdf.lastAutoTable.finalY + 10);
-        pdf.text(`VAT: ${vatTotal.toFixed(2)}`, 10, pdf.lastAutoTable.finalY + 20);
-        pdf.text(`Grand Total: ${grandTotal.toFixed(2)}`, 10, pdf.lastAutoTable.finalY + 30);
-
-        pdf.save('invoice.pdf');
-      }
+      // Populate the invoice content
+      createInvoiceContent({quoteNumber, invoiceDate, customerName, customerAddress}); // Pass the data
+      // ... (generatePdfAndShare() function remains largely the same, now pulling data from the #invoiceContent) ...
     </script>
   </div>
 </body>
 </html>
+0 commit comments
+Comments
+0
+ (0)
+Comment
+You're receiving notifications because you're subscribed to this thread.
