@@ -142,7 +142,7 @@ button:hover {
       <textarea id="customerAddress" rows="3" required></textarea>
     </div>
 
-    <button type="button" id="generateInvoiceButton" onclick="generatePdfAndShare()">Generate PDF & Send via WhatsApp</button>
+    <button type="button" id="generateInvoiceButton" onclick="generatePdf()">Generate PDF</button>
     <button type="button" id="printButton" onclick="window.print()">Print to PDF</button>
   </form>
 
@@ -157,7 +157,7 @@ button:hover {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
 <script>
-function generatePdfAndShare() {
+function generatePdf() {
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF();
 
@@ -167,18 +167,18 @@ function generatePdfAndShare() {
   pdf.text(`Date: ${document.getElementById("invoiceDate").value}`, 10, 30);
   pdf.text(`Customer Name: ${document.getElementById("customerName").value}`, 10, 40);
   pdf.text(`Customer Address: ${document.getElementById("customerAddress").value}`, 10, 50);
-  pdf.text(`Grand Total: ${document.getElementById("grandTotal").textContent}`, 10, 60);
+  // Add grand total if you have that data in your form
+  // pdf.text(`Grand Total: ${document.getElementById("grandTotal").textContent}`, 10, 60);
 
   // Generate the Blob URL for the PDF
   const blob = pdf.output('blob');
   const pdfFileURL = URL.createObjectURL(blob);
 
-  // WhatsApp Sharing
-  const message = `Hello! Please find the invoice attached.`;
-  const whatsappURL = `https://wa.me/?text=${encodeURIComponent(message)}&attachment=${encodeURIComponent(pdfFileURL)}`;
-
-  // Open WhatsApp Link
-  window.open(whatsappURL, '_blank');
+  // Create a downloadable link
+  const link = document.createElement('a');
+  link.href = pdfFileURL;
+  link.download = "invoice.pdf"; // name of the downloaded file
+  link.click();
 }
 </script>
 </body>
