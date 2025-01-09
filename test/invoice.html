@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Boreholeguyz Invoice</title>
+  <style>
+    /* ... (Same CSS as before, but refine for a visually appealing invoice) ... */
+    body {
+        font-family: 'Arial', sans-serif; /* Specify a clean font */
+    }
+    .container {
+        max-width: 800px; /* Adjust width for better visual appeal */
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    .header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .logo {
+        max-width: 150px;
+        margin: 0 auto;
+        display: block;
+    }
+    /*Other styles for visually appealing invoice*/
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <img src="images/Boreholeguys.png" alt="Boreholeguyz Logo" class="logo">
+      <h1>Boreholeguyz Invoice</h1>
+    </div>
+    <div id="invoiceContent"></div>
+
+    <button type="button" id="generateInvoicePdfButton" onclick="generatePdfAndShare()">Generate PDF & Download</button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+      // Get data from URL parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const quoteNumber = urlParams.get('quoteNumber');
+      const invoiceDate = urlParams.get('invoiceDate');
+      const customerName = urlParams.get('customerName');
+      const customerAddress = urlParams.get('customerAddress');
+      // ... (Rest of the code to reconstruct invoice items from URL parameters - You'll need to adapt this section) ...
+
+      // Function to dynamically create the invoice content (Similar to generateInvoice() but using the parameters)
+      function createInvoiceContent(data){
+          // ... (Your adapted code here to generate the invoice content from parameters)
+      }
+
+      // Populate the invoice content
+      createInvoiceContent({quoteNumber, invoiceDate, customerName, customerAddress}); // Pass the data
+
+
+      // ... (generatePdfAndShare() function remains largely the same, now pulling data from the #invoiceContent) ...
+    </script>
+  </div>
+</body>
+</html>
