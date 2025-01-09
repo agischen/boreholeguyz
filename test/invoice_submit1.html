@@ -1,38 +1,120 @@
 <!DOCTYPE html>
 <html>
 <head>
-<titleB>Boreholeguyz Invoice Generator</title>
+<title>Boreholeguyz Invoice Generator</title>
 <style>
-body { font-family: sans-serif; margin: 0; }
-.container { width: 95%; margin: 10px auto; }
-.header { text-align: center; margin-bottom: 10px; }
-.logo { max-width: 150px; margin: 0 auto; }
-.customer-info { margin-bottom: 10px; }
-table { width: 100%; border-collapse: collapse; }
-th, td { border: 1px solid black; padding: 5px; text-align: left; }
-th { background-color: #f2f2f2; }
-.total { font-weight: bold; text-align: right; }
-.banking-details { margin-top: 10px; }
-#invoiceForm { margin-bottom: 10px; }
-label { display: block; margin-bottom: 5px; }
-input, select, textarea { width: 100%; padding: 6px; margin-bottom: 5px; box-sizing: border-box; font-size: 16px; }
-button { padding: 8px 15px; font-size: 16px; margin-bottom: 10px; }
-
-/* Media query for smaller screens */
-@media (max-width: 600px) {
-  .container { width: 98%; }
-  .logo { max-width: 100px; }
-  table { font-size: 14px; }
-  th, td { padding: 4px; }
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-/* Styles for printing */
+.container {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.logo {
+  max-width: 120px;
+  margin: 0 auto;
+  display: block;
+}
+
+.customer-info {
+  margin-bottom: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+th, td {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+.total {
+  font-weight: bold;
+  text-align: right;
+}
+
+.banking-details {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+#invoiceForm {
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  font-size: 14px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .container {
+    padding: 5px;
+  }
+  table {
+    font-size: 12px;
+  }
+  th, td {
+    padding: 6px;
+  }
+}
+
+/* Print styles */
 @media print {
-  body { font-size: 9pt; }
-  .container { width: 70%; margin: 20px auto; }
-  .logo { max-width: 120px; }
-  .banking-details { margin-top: 10px; }
-  #generateInvoiceButton, #printButton { display: none; }
+  body {
+    font-size: 9pt;
+  }
+  .container {
+    width: 90%;
+    margin: 0 auto;
+  }
+  .logo {
+    max-width: 100px;
+  }
+  #generateInvoiceButton, #printButton {
+    display: none;
+  }
 }
 </style>
 </head>
@@ -41,8 +123,8 @@ button { padding: 8px 15px; font-size: 16px; margin-bottom: 10px; }
   <div class="header">
     <img src="images/Boreholeguys.png" alt="Boreholeguyz Logo" class="logo">
     <p>Boreholeguyz</p>
-    <p>1240 Kamfer Cresent,Roodekrans, 1724</p>
-    <p>TEL NO: 06155555 | EMAIL: info@borehoeguyz.co.za | WEBSITE: www.boreholeguyz.co.za</p>
+    <p>1240 Kamfer Cresent, Roodekrans, 1724</p>
+    <p>TEL NO: 06155555 | EMAIL: info@borehoeguyz.co.za</p>
   </div>
 
   <form id="invoiceForm">
@@ -89,7 +171,7 @@ button { padding: 8px 15px; font-size: 16px; margin-bottom: 10px; }
     </table>
 
     <button type="button" id="generateInvoiceButton" onclick="generateInvoice()">Generate Invoice</button>
-    <button type="button" id="printButton" onclick="window.print()">Print to PDF (Edge)</button>
+    <button type="button" id="printButton" onclick="window.print()">Print to PDF</button>
   </form>
 
   <div id="invoice"></div>
@@ -168,15 +250,15 @@ function generateInvoice() {
       <tfoot>
         <tr>
           <td colspan="3" class="total">Subtotal:</td>
-          <td class="total" id="subTotal">${parseFloat(document.getElementById('subTotal').textContent).toFixed(2)}</td>
+          <td class="total">${parseFloat(document.getElementById('subTotal').textContent).toFixed(2)}</td>
         </tr>
         <tr>
           <td colspan="3" class="total">VAT (15%):</td>
-          <td class="total" id="vatTotal">${parseFloat(document.getElementById('vatTotal').textContent).toFixed(2)}</td>
+          <td class="total">${parseFloat(document.getElementById('vatTotal').textContent).toFixed(2)}</td>
         </tr>
         <tr>
           <td colspan="3" class="total">Grand Total:</td>
-          <td class="total" id="grandTotal">${parseFloat(document.getElementById('grandTotal').textContent).toFixed(2)}</td>
+          <td class="total">${parseFloat(document.getElementById('grandTotal').textContent).toFixed(2)}</td>
         </tr>
       </tfoot>
     </table>`;
